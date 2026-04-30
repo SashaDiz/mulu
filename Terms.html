@@ -7,25 +7,30 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=National+Park:wght@200..800&display=swap" rel="stylesheet" />
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: #000; color: #fff; }
   body {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'National Park', sans-serif;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+  h1, h2, h3, h4, h5, h6, .logo-word { font-weight: 700 !important; font-style: normal !important; }
   a { color: inherit; }
 
   .liquid-glass {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(120, 110, 220, 0.10);
     background-blend-mode: luminosity;
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    border: none;
+    box-shadow:
+      inset 0 1px 1px rgba(200, 190, 255, 0.32),
+      inset 0 -1px 1px rgba(80, 70, 180, 0.18),
+      0 4px 32px -8px rgba(80, 70, 200, 0.35);
     position: relative;
     overflow: hidden;
   }
@@ -37,12 +42,12 @@
     padding: 1.4px;
     background: linear-gradient(
       180deg,
-      rgba(255,255,255,0.45) 0%,
-      rgba(255,255,255,0.15) 20%,
+      rgba(210, 200, 255, 0.85) 0%,
+      rgba(190, 180, 255, 0.35) 20%,
       rgba(255,255,255,0) 40%,
       rgba(255,255,255,0) 60%,
-      rgba(255,255,255,0.15) 80%,
-      rgba(255,255,255,0.45) 100%
+      rgba(160, 150, 240, 0.35) 80%,
+      rgba(120, 110, 220, 0.85) 100%
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -93,7 +98,7 @@
   }
   .logo-mark img { width: 100%; height: 100%; object-fit: cover; }
   .logo-word {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Gluten', cursive;
     font-style: italic;
     color: #fff;
     font-size: 26px;
@@ -134,7 +139,7 @@
   }
   .eyebrow .dot { width:6px; height:6px; border-radius:9999px; background:#9DB1FF; }
   h1.title {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Gluten', cursive;
     font-style: italic;
     font-weight: 400;
     font-size: clamp(48px, 7vw, 96px);
@@ -167,7 +172,7 @@
   }
 
   article.doc h2 {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Gluten', cursive;
     font-style: italic;
     font-weight: 400;
     font-size: clamp(28px, 3.6vw, 40px);
@@ -178,7 +183,7 @@
   }
   article.doc h2:first-child { margin-top: 0; }
   article.doc h2 .num {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'National Park', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -189,7 +194,7 @@
     text-transform: uppercase;
   }
   article.doc h3 {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'National Park', sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: #fff;
