@@ -621,6 +621,8 @@ function Navbar() {
             href="https://apps.apple.com/us/app/mulu-digital-detox-journal/id6760852618"
             target="_blank"
             rel="noopener noreferrer"
+            data-fast-goal="download_ios"
+            data-fast-goal-location="navbar_desktop"
             className="hidden md:inline-flex items-center gap-1.5 bg-white text-black rounded-full px-4 py-2 text-sm font-medium font-body hover:bg-white/90 transition-colors whitespace-nowrap">
 
             <AppleIcon className="w-3.5 h-3.5 -mt-0.5" />
@@ -631,6 +633,8 @@ function Navbar() {
             href="https://apps.apple.com/us/app/mulu-digital-detox-journal/id6760852618"
             target="_blank"
             rel="noopener noreferrer"
+            data-fast-goal="download_ios"
+            data-fast-goal-location="navbar_mobile"
             className="md:hidden inline-flex items-center gap-1.5 bg-white text-black rounded-full px-3 py-1.5 text-sm font-medium font-body whitespace-nowrap">
 
             <AppleIcon className="w-3.5 h-3.5 -mt-0.5" />
@@ -675,6 +679,8 @@ function SocialLinks({ className = "", size = "md" }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={item.label}
+        data-fast-goal="social_click"
+        data-fast-goal-platform={item.label.toLowerCase()}
         className={`inline-flex items-center justify-center ${s.btn} rounded-full border border-white/15 bg-white/5 text-white/70 hover:bg-white/10 hover:border-white/30 hover:text-white transition-colors`}>
 
           <svg viewBox="0 0 16 16" fill="currentColor" className={s.icon} aria-hidden="true">
@@ -1170,8 +1176,10 @@ function Hero() {
                   href="https://apps.apple.com/us/app/mulu-digital-detox-journal/id6760852618"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-fast-goal="download_ios"
+                  data-fast-goal-location="hero"
                   className="cta-glass rounded-full px-5 py-2.5 inline-flex items-center gap-2 text-sm font-medium text-white font-body">
-                  
+
                   <AppleIcon className="cta-apple w-4 h-4 -mt-0.5" />
                   Download for iPhone
                   <ArrowUpRight className="cta-arrow w-4 h-4" />
@@ -1276,8 +1284,10 @@ function StartSection() {
             href="https://apps.apple.com/us/app/mulu-digital-detox-journal/id6760852618"
             target="_blank"
             rel="noopener noreferrer"
+            data-fast-goal="download_ios"
+            data-fast-goal-location="start_section"
             className="mt-8 cta-glass rounded-full px-6 py-3 inline-flex items-center gap-2 text-sm font-medium text-white font-body">
-            
+
             <AppleIcon className="cta-apple w-4 h-4 -mt-0.5" />
             Download for iPhone
             <ArrowUpRight className="cta-arrow w-4 h-4" />
@@ -1538,8 +1548,10 @@ function FeaturesChess() {
                   href="https://apps.apple.com/us/app/mulu-digital-detox-journal/id6760852618"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-fast-goal="download_ios"
+                  data-fast-goal-location="features_chess"
                   className="mt-7 cta-glass rounded-full px-5 py-2.5 inline-flex items-center gap-2 text-sm font-medium text-white font-body">
-                  
+
                     <AppleIcon className="cta-apple w-4 h-4 -mt-0.5" />
                     Download for iPhone
                     <ArrowUpRight className="cta-arrow w-4 h-4" />
@@ -1705,8 +1717,10 @@ function CtaFooter() {
                   href="https://apps.apple.com/us/app/mulu-digital-detox-journal/id6760852618"
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-fast-goal="download_ios"
+                  data-fast-goal-location="footer"
                   className="cta-glass rounded-full px-6 py-3 inline-flex items-center gap-2 text-sm font-medium text-white font-body">
-                  
+
                   <AppleIcon className="cta-apple w-4 h-4 -mt-0.5" />
                   Download for iPhone
                   <ArrowUpRight className="cta-arrow w-4 h-4" />
@@ -1725,7 +1739,7 @@ function CtaFooter() {
               { label: "Terms", href: "Terms.html" },
               { label: "Support", href: "Support.html" }].
               map((l) =>
-              <a key={l.label} href={l.href} className="text-white/40 hover:text-white/80 text-xs font-body transition-colors">{l.label}</a>
+              <a key={l.label} href={l.href} data-fast-goal={`open_${l.label.toLowerCase()}`} className="text-white/40 hover:text-white/80 text-xs font-body transition-colors">{l.label}</a>
               )}
             </div>
           </div>
