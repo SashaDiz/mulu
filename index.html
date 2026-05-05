@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Mulu — Digital Detox Journal</title>
+<title>Mulu — Digital Detox Journal for Your Mind</title>
 <link rel="icon" type="image/x-icon" href="uploads/favicon.ico" />
 
 <script
@@ -169,86 +169,6 @@
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-  /* Download CTA — heavy glass + animated sheen on hover */
-  .cta-glass {
-    position: relative;
-    background: rgba(140, 130, 230, 0.10);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    box-shadow:
-      0 4px 18px rgba(20, 10, 60, 0.28),
-      inset 0 1px 1px rgba(200, 190, 255, 0.24);
-    transition:
-      transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1),
-      background 420ms ease,
-      box-shadow 420ms ease;
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .cta-glass::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(
-      180deg,
-      rgba(200, 190, 255, 0.6) 0%,
-      rgba(180, 170, 255, 0.2) 25%,
-      rgba(255,255,255,0) 50%,
-      rgba(140, 130, 230, 0.2) 75%,
-      rgba(120, 110, 220, 0.55) 100%
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    pointer-events: none;
-    z-index: 1;
-    transition: opacity 420ms ease;
-  }
-  /* moving sheen */
-  .cta-glass::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(
-      115deg,
-      transparent 30%,
-      rgba(255, 255, 255, 0.28) 50%,
-      transparent 70%
-    );
-    transform: translateX(-120%);
-    transition: transform 850ms cubic-bezier(0.2, 0.7, 0.2, 1);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .cta-glass > * { position: relative; z-index: 2; }
-
-  .cta-glass:hover {
-    background: rgba(140, 130, 230, 0.20);
-    transform: translateY(-1px);
-    box-shadow:
-      0 14px 36px rgba(20, 10, 60, 0.5),
-      0 0 0 1px rgba(180, 170, 255, 0.18),
-      inset 0 1px 1px rgba(220, 215, 255, 0.34);
-  }
-  .cta-glass:hover::after { transform: translateX(120%); }
-  .cta-glass:active { transform: translateY(0); transition-duration: 120ms; }
-
-  .cta-glass .cta-arrow {
-    transition: transform 360ms cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  .cta-glass:hover .cta-arrow {
-    transform: translate(2px, -2px);
-  }
-  .cta-glass .cta-apple {
-    transition: transform 360ms cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
-  .cta-glass:hover .cta-apple {
-    transform: scale(1.08) rotate(-2deg);
-  }
   /* Feature-row phone — tilted in 3D, fade-out at the bottom */
   .feat-stage {
     perspective: 1400px;
@@ -424,6 +344,21 @@ const AppleIcon = ({ className = "w-4 h-4" }) =>
     <path d="M16.365 1.43c0 1.14-.467 2.27-1.218 3.087-.808.881-2.114 1.55-3.196 1.466-.13-1.117.45-2.286 1.171-3.04.815-.85 2.214-1.49 3.243-1.513zM20.5 17.25c-.6 1.36-.89 1.97-1.66 3.18-1.07 1.66-2.59 3.73-4.46 3.74-1.66.02-2.09-1.08-4.35-1.07-2.26.01-2.73 1.09-4.39 1.07-1.87-.02-3.31-1.89-4.38-3.55C-.91 16.99-1.21 11.86 1.6 9.05c1.04-1.06 2.55-1.73 3.93-1.73 1.66 0 2.71 1.07 4.08 1.07 1.33 0 2.14-1.07 4.06-1.07 1.27 0 2.62.69 3.59 1.85-3.16 1.73-2.65 6.24.74 8.08z" />
   </svg>;
 
+const Activity = (p) => <Icon {...p}><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.5.5 0 0 1-.96 0L9.68 3.18a.5.5 0 0 0-.96 0l-2.35 8.36A2 2 0 0 1 4.45 13H2" /></Icon>;
+const Sun = (p) => <Icon {...p}><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></Icon>;
+const HeartPulse = (p) => <Icon {...p}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" /><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></Icon>;
+const Eye = (p) => <Icon {...p}><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></Icon>;
+const BellRing = (p) => <Icon {...p}><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /><path d="M4 2C2.8 3.7 2 5.7 2 8" /><path d="M22 8c0-2.3-.8-4.3-2-6" /></Icon>;
+const Lock = (p) => <Icon {...p}><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></Icon>;
+const NotebookPen = (p) => <Icon {...p}><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" /><path d="M2 6h4" /><path d="M2 10h4" /><path d="M2 14h4" /><path d="M2 18h4" /><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" /></Icon>;
+const Repeat = (p) => <Icon {...p}><path d="m17 2 4 4-4 4" /><path d="M3 11v-1a4 4 0 0 1 4-4h14" /><path d="m7 22-4-4 4-4" /><path d="M21 13v1a4 4 0 0 1-4 4H3" /></Icon>;
+const Wind = (p) => <Icon {...p}><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" /><path d="M9.6 4.6A2 2 0 1 1 11 8H2" /><path d="M12.6 19.4A2 2 0 1 0 14 16H2" /></Icon>;
+const Heart = (p) => <Icon {...p}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" /></Icon>;
+const Bed = (p) => <Icon {...p}><path d="M2 4v16" /><path d="M2 8h18a2 2 0 0 1 2 2v10" /><path d="M2 17h20" /><path d="M6 8v9" /></Icon>;
+const Brain = (p) => <Icon {...p}><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /></Icon>;
+const Coffee = (p) => <Icon {...p}><path d="M17 8h1a4 4 0 1 1 0 8h-1" /><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" /><path d="M6 2v2" /><path d="M10 2v2" /><path d="M14 2v2" /></Icon>;
+const Plus = (p) => <Icon {...p}><path d="M5 12h14" /><path d="M12 5v14" /></Icon>;
+
 
 /* ------------------------------------------------------------------ */
 /* Logo placeholder                                                    */
@@ -448,6 +383,7 @@ function BlurText({
   startDelay = 0, // ms before first element
   direction = "bottom",
   className = "",
+  style,
   once = true
 }) {
   const ref = useRef(null);
@@ -493,7 +429,7 @@ function BlurText({
   const yFrom = direction === "bottom" ? 50 : -50;
 
   return (
-    <Tag ref={ref} className={className}>
+    <Tag ref={ref} className={className} style={style}>
       {parts.map((part, i) => {
         if (/^\s+$/.test(part)) return <span key={`ws-${i}`}>{part}</span>;
         return (
@@ -627,7 +563,7 @@ function Navbar() {
             className="hidden md:inline-flex items-center gap-1.5 bg-white text-black rounded-full px-4 py-2 text-sm font-medium font-body hover:bg-white/90 transition-colors whitespace-nowrap">
 
             <AppleIcon className="w-3.5 h-3.5 -mt-0.5" />
-            Download for iPhone
+            Get Mulu on iOS
           </a>
 
           <a
@@ -1100,9 +1036,9 @@ function PhoneMock() {
 /* Hero                                                                */
 /* ------------------------------------------------------------------ */
 function Hero() {
-  const partners = ["Mindful", "Slow", "Quiet Hours", "Offline", "Stillness"];
+  const partners = ["Mindful", "Calm", "Quiet", "Honest", "Present"];
   return (
-    <section id="top" className="relative overflow-visible min-h-[940px] lg:min-h-[1000px] lg:h-[1000px]">
+    <section id="top" className="relative overflow-visible min-h-[1100px] lg:min-h-[1180px] lg:h-[1180px]">
       {/* Video — constrained width, anchored toward bottom, with edge fades */}
       <div
         className="absolute z-0 mx-auto left-0 right-0 max-w-[1400px] px-6 lg:px-16"
@@ -1151,23 +1087,24 @@ function Hero() {
             <Reveal delay={0.05}>
               <div className="liquid-glass rounded-full pl-1 pr-4 py-1 inline-flex items-center gap-2.5 max-w-full">
                 <span className="bg-white text-black rounded-full px-3 py-1 text-xs font-semibold font-body tracking-wide flex-shrink-0">New</span>
-                <span className="text-white/90 text-xs md:text-sm font-body whitespace-nowrap">A gentler way to put the phone down.</span>
+                <span className="text-white/90 text-xs md:text-sm font-body whitespace-nowrap">Gentle digital detox for your mind.</span>
               </div>
             </Reveal>
 
             <BlurText
               as="h1"
-              text="Journal it before you scroll it."
+              text="Stop doomscrolling. Calm your mind in 2 minutes."
               delay={100}
               startDelay={150}
-              className="mt-6 text-left text-5xl md:text-6xl lg:text-[5rem] font-heading italic text-white leading-[0.85] max-w-[560px]"
-              style={{ letterSpacing: "-3px", fontSize: "clamp(44px, 8vw, 72px)" }} />
-            
+              className="mt-6 text-left text-5xl md:text-6xl lg:text-7xl font-heading italic text-white leading-[0.9] max-w-[640px]"
+              style={{ letterSpacing: "-2px", fontSize: "clamp(42px, 7vw, 68px)" }} />
+
 
             <Reveal delay={0.8}>
               <p className="mt-6 text-left text-sm md:text-base text-white/90 font-body font-light leading-snug max-w-md">
-                Mulu locks your most distracting apps until you take two minutes to
-                reflect. A small pause that quietly takes your time back.
+                When you reach for social media, Mulu gently blocks your distracting
+                apps and asks what's really on your mind. Write a short journal entry
+                to unlock.
               </p>
             </Reveal>
 
@@ -1179,11 +1116,11 @@ function Hero() {
                   rel="noopener noreferrer"
                   data-fast-goal="download_ios"
                   data-fast-goal-location="hero"
-                  className="cta-glass rounded-full px-5 py-2.5 inline-flex items-center gap-2 text-sm font-medium text-white font-body">
+                  className="bg-white text-black rounded-full px-5 py-2.5 inline-flex items-center gap-2 text-sm font-medium font-body hover:bg-white/90 transition-colors">
 
-                  <AppleIcon className="cta-apple w-4 h-4 -mt-0.5" />
-                  Download for iPhone
-                  <ArrowUpRight className="cta-arrow w-4 h-4" />
+                  <AppleIcon className="w-4 h-4 -mt-0.5" />
+                  Get Mulu on iOS
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
             </Reveal>
@@ -1198,10 +1135,10 @@ function Hero() {
         </div>
 
         {/* Partners bar */}
-        <div className="mt-auto pt-16 pb-8 w-full flex flex-col items-center gap-6">
+        <div className="mt-auto pt-28 md:pt-36 lg:pt-44 pb-16 md:pb-20 w-full flex flex-col items-center gap-8 md:gap-10">
           <RevealOnView>
             <div className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white/90 font-body whitespace-nowrap">
-              For people who'd rather be present
+              For minds that deserve a quieter moment
             </div>
           </RevealOnView>
           <RevealOnView delay={0.1}>
@@ -1255,47 +1192,6 @@ function SectionHeading({ children, className = "", style }) {
       style={style}
       className={`text-4xl md:text-5xl lg:text-6xl font-heading italic text-white tracking-tight leading-[0.9] ${className}`} />);
 
-
-}
-
-/* ------------------------------------------------------------------ */
-/* StartSection                                                        */
-/* ------------------------------------------------------------------ */
-function StartSection() {
-  return (
-    <VideoSection
-      src="https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6zqJ3aS9u00A.m3u8">
-      
-      <div id="start" className="px-6 py-24 md:py-40 flex flex-col items-center text-center" style={{ minHeight: 500 }}>
-        <RevealOnView>
-          <SectionBadge>How it works</SectionBadge>
-        </RevealOnView>
-        <div className="mt-5 max-w-3xl">
-          <SectionHeading className="text-center mx-auto" style={{ fontSize: "clamp(36px, 6vw, 56px)" }}>Pause. Reflect. Continue.</SectionHeading>
-        </div>
-        <RevealOnView delay={0.15}>
-          <p className="mt-6 text-white/60 font-body font-light text-sm md:text-base max-w-xl mx-auto">
-            Pick a time and the apps you'd like to step away from. When the moment
-            arrives, Mulu locks them and opens a calm journaling flow. Two minutes,
-            and you're on your way.
-          </p>
-        </RevealOnView>
-        <RevealOnView delay={0.25}>
-          <a
-            href="https://apps.apple.com/us/app/mulu-digital-detox-journal/id6760852618"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-fast-goal="download_ios"
-            data-fast-goal-location="start_section"
-            className="mt-8 cta-glass rounded-full px-6 py-3 inline-flex items-center gap-2 text-sm font-medium text-white font-body">
-
-            <AppleIcon className="cta-apple w-4 h-4 -mt-0.5" />
-            Download for iPhone
-            <ArrowUpRight className="cta-arrow w-4 h-4" />
-          </a>
-        </RevealOnView>
-      </div>
-    </VideoSection>);
 
 }
 
@@ -1498,8 +1394,8 @@ function FeaturePhone({ screen, tilt = "left", live = null }) {
 function FeaturesChess() {
   const rows = [
   {
-    title: "A gentle lock, not a guilt trip.",
-    body: "Mulu doesn't punish. It just adds enough friction to break the loop. Open Instagram, see a calm prompt, write a few lines, carry on. Doomscrolling becomes a choice again.",
+    title: "Choose which apps to lock.",
+    body: "Pick the social, news or entertainment apps that pull you in the most. Mulu only steps in for the ones you choose, at the times you set.",
     cta: "See the flow",
     reverse: false,
     screen: "screens/apps-block.png",
@@ -1507,8 +1403,8 @@ function FeaturesChess() {
     tilt: "left"
   },
   {
-    title: <>Three small questions.<br />One quieter mind.</>,
-    body: "What stood out today. What you're grateful for. A tiny step for tomorrow. Two minutes of reflection that quietly reshape how the rest of the day feels.",
+    title: <>Journal a few lines.<br />Unlock a quieter mind.</>,
+    body: "When the trigger hits, those apps stay locked. Mulu opens a calm journaling screen and asks what's on your mind. One sentence counts — once you finish, your apps unlock.",
     cta: "Read the prompts",
     reverse: true,
     screen: "screens/recap.png",
@@ -1516,12 +1412,44 @@ function FeaturesChess() {
   }];
 
 
+  const steps = [
+  { Icon: BellRing, title: "Pick your trigger", body: "Choose when Mulu should step in — at night, during breaks, or whenever you usually get lost in your phone." },
+  { Icon: Lock, title: "Choose apps to lock", body: "Select the social media, news, or entertainment apps that distract you the most." },
+  { Icon: NotebookPen, title: "Journal to unlock", body: "Write a short check-in instead of scrolling. Once you finish, your apps unlock." },
+  { Icon: Repeat, title: "Repeat as a ritual", body: "Over time, this tiny pause helps you slow down your thoughts and reduce anxious scrolling." }];
+
+
   return (
     <section id="services" className="relative bg-black px-6 lg:px-16 py-20 md:py-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center gap-5">
-          <RevealOnView><SectionBadge>What it does</SectionBadge></RevealOnView>
-          <SectionHeading className="text-center max-w-3xl mx-auto" style={{ fontSize: "clamp(36px, 6vw, 56px)" }}>A small ritual, every day.</SectionHeading>
+          <RevealOnView><SectionBadge>How Mulu works</SectionBadge></RevealOnView>
+          <SectionHeading className="text-center max-w-3xl mx-auto" style={{ fontSize: "clamp(36px, 6vw, 56px)" }}>Pause → write → unlock.</SectionHeading>
+          <RevealOnView delay={0.1}>
+            <p className="text-white/60 font-body font-light text-sm md:text-base max-w-xl mx-auto">
+              A simple flow that turns your scrolling reflex into a mental-health ritual.
+            </p>
+          </RevealOnView>
+        </div>
+
+        <div className="mt-14 md:mt-20 relative">
+          {/* Horizontal connector line on desktop */}
+          <div className="hidden lg:block absolute left-[10%] right-[10%] top-9 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-y-0 lg:gap-x-4 relative">
+            {steps.map(({ Icon: I, title, body }, i) =>
+            <RevealOnView key={title} delay={0.08 * i}>
+                <div className="flex flex-col items-center text-center px-2 relative">
+                  <div className="liquid-glass-strong rounded-full w-[72px] h-[72px] flex items-center justify-center text-white relative z-10 ring-1 ring-white/10">
+                    <I className="w-6 h-6" />
+                  </div>
+                  <span className="mt-4 text-white/35 font-mono text-[11px] tracking-[0.2em] uppercase">Step 0{i + 1}</span>
+                  <h4 className="mt-2 font-heading italic text-white leading-tight" style={{ fontSize: "clamp(20px, 2.4vw, 24px)" }}>{title}</h4>
+                  <p className="mt-3 text-white/55 font-body font-light text-sm leading-relaxed max-w-[260px]">{body}</p>
+                </div>
+              </RevealOnView>
+            )}
+          </div>
         </div>
 
         <div className="mt-16 md:mt-24 flex flex-col gap-16 md:gap-24">
@@ -1551,11 +1479,11 @@ function FeaturesChess() {
                   rel="noopener noreferrer"
                   data-fast-goal="download_ios"
                   data-fast-goal-location="features_chess"
-                  className="mt-7 cta-glass rounded-full px-5 py-2.5 inline-flex items-center gap-2 text-sm font-medium text-white font-body">
+                  className="mt-7 bg-white text-black rounded-full px-5 py-2.5 inline-flex items-center gap-2 text-sm font-medium font-body hover:bg-white/90 transition-colors">
 
-                    <AppleIcon className="cta-apple w-4 h-4 -mt-0.5" />
-                    Download for iPhone
-                    <ArrowUpRight className="cta-arrow w-4 h-4" />
+                    <AppleIcon className="w-4 h-4 -mt-0.5" />
+                    Get Mulu on iOS
+                    <ArrowUpRight className="w-4 h-4" />
                   </a>
                 </RevealOnView>
               </div>
@@ -1572,18 +1500,18 @@ function FeaturesChess() {
 /* ------------------------------------------------------------------ */
 function FeaturesGrid() {
   const cards = [
-  { Icon: Clock, title: "Two minutes a day", body: "Short enough to actually do. Long enough to change the shape of your evening." },
-  { Icon: Smile, title: "Mood check-ins", body: "Notice how digital habits move your mood. Patterns surface on their own, no charts to study." },
-  { Icon: Flame, title: "Streaks without pressure", body: "A soft nudge, not a scoreboard. Miss a day, pick it back up. Mulu meets you where you are." },
-  { Icon: Moon, title: "Quiet by design", body: "No feeds, no badges, no dopamine hooks. Mulu is one of the only apps that wants to see less of you." }];
+  { Icon: Wind, title: "Less anxious scrolling", body: "Insert a small moment of awareness before you dive into the feed." },
+  { Icon: Heart, title: "More emotional clarity", body: "Name what you feel instead of numbing it with endless content." },
+  { Icon: Moon, title: "Easier evenings", body: "Trade late-night doomscrolling for a short reflection that helps your mind wind down." },
+  { Icon: Shield, title: "A safe space on your phone", body: "Your entries stay private. Mulu is a quiet corner just for you." }];
 
 
   return (
     <section id="process" className="relative bg-black px-6 lg:px-16 pt-20 md:pt-28 pb-8">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center gap-5">
-          <RevealOnView><SectionBadge>Why Mulu</SectionBadge></RevealOnView>
-          <SectionHeading className="text-center max-w-3xl mx-auto" style={{ fontSize: "clamp(36px, 6vw, 56px)" }}>Less screen. More you.</SectionHeading>
+          <RevealOnView><SectionBadge>Built for your mental health</SectionBadge></RevealOnView>
+          <SectionHeading className="text-center max-w-3xl mx-auto" style={{ fontSize: "clamp(36px, 6vw, 56px)" }}>A journal designed for your mind, not your to-do list.</SectionHeading>
         </div>
 
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
@@ -1601,6 +1529,14 @@ function FeaturesGrid() {
             </RevealOnView>
           )}
         </div>
+
+        <RevealOnView delay={0.25}>
+          <p className="mt-12 md:mt-16 text-center text-white/50 font-body font-light italic text-xs md:text-sm max-w-2xl mx-auto leading-relaxed">
+            Mulu is not therapy and it does not replace professional help, but it
+            can support your mental health by helping you pause, reflect, and
+            listen to yourself a little more often.
+          </p>
+        </RevealOnView>
       </div>
     </section>);
 
@@ -1611,10 +1547,10 @@ function FeaturesGrid() {
 /* ------------------------------------------------------------------ */
 function Stats() {
   const stats = [
-  { v: "2 min", l: "Average reflection" },
-  { v: "-41%", l: "Less time on social, week one" },
-  { v: "7 day", l: "Free trial on annual" },
-  { v: "4+", l: "Age rating, on the App Store" }];
+  { v: "2 min", l: "Honest reflection" },
+  { v: "1 / day", l: "Quiet check-in with yourself" },
+  { v: "0", l: "Streaks or scoreboards" },
+  { v: "100%", l: "Private — entries stay on your phone" }];
 
   return (
     <VideoSection
@@ -1649,15 +1585,15 @@ function Stats() {
 function Testimonials() {
   const items = [
   {
-    q: "I used to lose forty minutes before I even noticed. Now I write four sentences and the urge just\u2026 passes.",
+    q: "I used to scroll until I felt awful. Now I write four sentences and the anxiety actually quiets down.",
     n: "Sarah Chen", r: "Designer, Brooklyn"
   },
   {
-    q: "It's the only screen-time tool I haven't quietly disabled. The journaling makes the lock feel kind, not bossy.",
+    q: "It's the first screen-time tool that doesn't feel like punishment. Writing a few lines is gentler than being shamed by a timer.",
     n: "Marcus Webb", r: "PM, Berlin"
   },
   {
-    q: "Two weeks in and my evenings feel longer. Same hours, just\u2026 mine again. That's the whole pitch.",
+    q: "Two weeks in and my mind feels less crowded before bed. I'm noticing what I feel instead of numbing it.",
     n: "Elena Voss", r: "Writer, Lisbon"
   }];
 
@@ -1701,31 +1637,32 @@ function CtaFooter() {
           <div className="flex flex-col items-center text-center gap-6">
             <BlurText
               as="h2"
-              text="Take your time back."
+              text="Turn doomscrolling into a daily check-in."
               delay={70}
-              style={{ fontSize: "clamp(40px, 7vw, 64px)" }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading italic text-white leading-[0.85] max-w-4xl" />
-            
+              style={{ fontSize: "clamp(36px, 6.5vw, 60px)" }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading italic text-white leading-[0.9] max-w-4xl" />
+
             <RevealOnView delay={0.1}>
               <p className="text-white/70 font-body font-light text-base md:text-lg max-w-xl">
-                Free to start. Premium unlocks mood trends, activity insights and
-                data export. Seven days on us, monthly or annual when you're ready.
+                Try Mulu for a few days and notice how it feels to pause before you
+                scroll. Your mind deserves at least one honest moment with you each day.
               </p>
             </RevealOnView>
             <RevealOnView delay={0.2}>
-              <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
+              <div className="mt-3 flex flex-col items-center gap-3">
                 <a
                   href="https://apps.apple.com/us/app/mulu-digital-detox-journal/id6760852618"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-fast-goal="download_ios"
                   data-fast-goal-location="footer"
-                  className="cta-glass rounded-full px-6 py-3 inline-flex items-center gap-2 text-sm font-medium text-white font-body">
+                  className="bg-white text-black rounded-full px-6 py-3 inline-flex items-center gap-2 text-sm font-medium font-body hover:bg-white/90 transition-colors">
 
-                  <AppleIcon className="cta-apple w-4 h-4 -mt-0.5" />
-                  Download for iPhone
-                  <ArrowUpRight className="cta-arrow w-4 h-4" />
+                  <AppleIcon className="w-4 h-4 -mt-0.5" />
+                  Get Mulu on iOS
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
+                <span className="text-white/50 text-xs font-body">Start your gentle digital detox today.</span>
               </div>
             </RevealOnView>
           </div>
@@ -1751,6 +1688,331 @@ function CtaFooter() {
 }
 
 /* ------------------------------------------------------------------ */
+/* ResearchBenefits — "How journaling makes your life better"          */
+/* ------------------------------------------------------------------ */
+function ResearchBenefits() {
+  const items = [
+  {
+    Icon: Activity,
+    title: "Reduce stress and anxiety",
+    body: "Putting feelings into words quiets the loop in your head.",
+    source: "Psychology Today",
+    href: "https://www.psychologytoday.com/us/blog/evidence-based-living/202004/reduce-stress-and-anxiety-levels-journaling",
+    slug: "stress"
+  },
+  {
+    Icon: Sun,
+    title: "Handle stress better",
+    body: "Short reflective writing builds emotional resilience.",
+    source: "Frontiers in Psychology",
+    href: "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.702683/full",
+    slug: "resilience"
+  },
+  {
+    Icon: HeartPulse,
+    title: "Boost immune function",
+    body: "Expressive writing has measurable physical-health effects.",
+    source: "Cambridge — Adv. in Psychiatric Treatment",
+    href: "https://www.cambridge.org/core/journals/advances-in-psychiatric-treatment/article/emotional-and-physical-health-benefits-of-expressive-writing/ED2976A61F5DE56B46F07A1CE9EA9F9F",
+    slug: "immune"
+  },
+  {
+    Icon: Eye,
+    title: "Enhance self-awareness",
+    body: "Journaling helps you notice patterns in mood and behavior.",
+    source: "Univ. of Rochester Medical Center",
+    href: "https://www.urmc.rochester.edu/encyclopedia/content?ContentID=4552&ContentTypeID=1",
+    slug: "awareness"
+  }];
+
+
+  return (
+    <section id="research" className="relative bg-black px-6 lg:px-16 pt-20 md:pt-28 pb-12">
+      <div className="max-w-[1100px] mx-auto">
+        <div className="flex flex-col items-center text-center gap-5">
+          <RevealOnView><SectionBadge>Backed by research</SectionBadge></RevealOnView>
+          <SectionHeading className="text-center max-w-3xl mx-auto" style={{ fontSize: "clamp(36px, 6vw, 56px)" }}>How journaling makes your life better.</SectionHeading>
+          <RevealOnView delay={0.1}>
+            <p className="text-white/60 font-body font-light text-sm md:text-base max-w-xl mx-auto">
+              In just two minutes a day, science shows you can:
+            </p>
+          </RevealOnView>
+        </div>
+
+        <div className="mt-12 md:mt-16 border-t border-white/10">
+          {items.map(({ Icon: I, title, body, source, href, slug }, i) =>
+          <RevealOnView key={title} delay={0.05 * i}>
+              <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-fast-goal="open_research"
+              data-fast-goal-location={`research_${slug}`}
+              className="group flex items-start gap-5 md:gap-8 py-7 md:py-9 border-b border-white/10 transition-colors hover:bg-white/[0.025]">
+
+                <span className="text-white/30 font-mono text-xs md:text-sm pt-2 w-8 flex-shrink-0">0{i + 1}</span>
+                <span className="liquid-glass-strong rounded-full w-12 h-12 flex items-center justify-center text-white flex-shrink-0">
+                  <I className="w-5 h-5" />
+                </span>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-baseline justify-between gap-4 flex-wrap">
+                    <h4 className="font-heading italic text-white text-2xl md:text-3xl leading-tight" style={{ fontSize: "clamp(22px, 3vw, 30px)" }}>{title}</h4>
+                    <span className="text-white/40 text-[10px] md:text-xs font-mono uppercase tracking-wider whitespace-nowrap">{source}</span>
+                  </div>
+                  <p className="mt-2 text-white/60 font-body font-light text-sm md:text-base leading-relaxed">{body}</p>
+                </div>
+                <span className="hidden md:inline-flex items-center justify-center w-9 h-9 rounded-full border border-white/15 text-white/50 group-hover:text-white group-hover:border-white/40 transition-colors flex-shrink-0 mt-1">
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
+              </a>
+            </RevealOnView>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
+/* ------------------------------------------------------------------ */
+/* GentleByDesign — text-only breathing room                            */
+/* ------------------------------------------------------------------ */
+function GentleByDesign() {
+  const principles = [
+  { label: "No shame", body: "Skip a day, pick it back up. No red warnings, no guilt-tripping." },
+  { label: "No streaks", body: "Mulu isn't a scoreboard. Showing up matters more than counting days." },
+  { label: "No productivity scores", body: "You're not optimising your output — you're checking in with yourself." },
+  { label: "You stay in control", body: "You decide when Mulu appears, which apps it locks, and how long you write." }];
+
+
+  return (
+    <section className="relative bg-black px-6 lg:px-16 py-20 md:py-28">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Left — heading column */}
+          <div className="lg:col-span-5 flex flex-col items-start gap-5 lg:sticky lg:top-24">
+            <RevealOnView><SectionBadge>Gentle, not punishing</SectionBadge></RevealOnView>
+            <BlurText
+              as="h2"
+              text="A calm corner, not a scoreboard."
+              delay={70}
+              style={{ fontSize: "clamp(32px, 4.6vw, 48px)", letterSpacing: "-1px" }}
+              className="font-heading italic text-white tracking-tight leading-[0.95]" />
+
+            <RevealOnView delay={0.1}>
+              <p className="text-white/55 font-body font-light text-sm md:text-base leading-relaxed max-w-md">
+                Mulu adds just enough friction to help you pause — without turning
+                self-care into another to-do list.
+              </p>
+            </RevealOnView>
+          </div>
+
+          {/* Right — principles list */}
+          <div className="lg:col-span-7">
+            <ul className="flex flex-col">
+              {principles.map((p, i) =>
+              <RevealOnView key={p.label} delay={0.08 * i}>
+                  <li className="flex items-start gap-5 md:gap-7 py-5 md:py-6 border-t border-white/10 first:border-t-0 lg:first:border-t lg:first:border-white/10">
+                    <span className="text-white/30 font-mono text-xs md:text-sm pt-1 w-8 flex-shrink-0">0{i + 1}</span>
+                    <div className="flex-1">
+                      <h4 className="font-heading italic text-white leading-tight" style={{ fontSize: "clamp(20px, 2.4vw, 26px)" }}>{p.label}</h4>
+                      <p className="mt-1.5 text-white/55 font-body font-light text-sm md:text-base leading-relaxed">{p.body}</p>
+                    </div>
+                  </li>
+                </RevealOnView>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+/* ------------------------------------------------------------------ */
+/* Personas — "Who Mulu Is For"                                         */
+/* ------------------------------------------------------------------ */
+function Personas() {
+  const featured = {
+    Icon: Bed,
+    label: "01",
+    title: "The late-night doomscroller",
+    body: "You open social media before bed to switch off, but end up wired and restless. Mulu meets you at the moment you reach for the feed and offers a quieter alternative.",
+    accent: "Most common"
+  };
+
+  const others = [
+  {
+    Icon: Brain,
+    label: "02",
+    title: "The overwhelmed overthinker",
+    body: "Your brain jumps between thoughts, and you escape into your phone instead of sorting them out."
+  },
+  {
+    Icon: Coffee,
+    label: "03",
+    title: "The tired knowledge worker",
+    body: "You jump into quick hits of content between tasks and feel more scattered than before."
+  }];
+
+
+  return (
+    <section id="personas" className="relative bg-black px-6 lg:px-16 pt-20 md:pt-28 pb-12">
+      <div className="max-w-[1300px] mx-auto">
+        <div className="flex flex-col items-center text-center gap-5">
+          <RevealOnView><SectionBadge>Who Mulu is for</SectionBadge></RevealOnView>
+          <SectionHeading className="text-center max-w-3xl mx-auto" style={{ fontSize: "clamp(36px, 6vw, 56px)" }}>For people who feel drained by their screens.</SectionHeading>
+        </div>
+
+        <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-5 gap-5 md:gap-6">
+          {/* Featured persona — spans 3 columns on lg */}
+          <RevealOnView className="lg:col-span-3">
+            <div className="relative liquid-glass rounded-2xl p-8 md:p-10 h-full flex flex-col justify-between gap-8 min-h-[320px] overflow-hidden">
+              <div
+                className="absolute inset-0 pointer-events-none opacity-60"
+                style={{ background: "radial-gradient(circle at 100% 100%, rgba(155, 135, 255, 0.10), transparent 55%)" }} />
+
+              <div className="flex items-center gap-3 relative">
+                <span className="liquid-glass-strong rounded-full w-12 h-12 flex items-center justify-center text-white">
+                  <featured.Icon className="w-5 h-5" />
+                </span>
+                <span className="text-white/30 font-mono text-[11px] tracking-[0.2em] uppercase">{featured.label}</span>
+                <span className="ml-auto liquid-glass rounded-full px-3 py-1 text-[10px] tracking-wide font-body text-white/70">{featured.accent}</span>
+              </div>
+              <div className="relative">
+                <h4 className="font-heading italic text-white leading-tight" style={{ fontSize: "clamp(26px, 3.4vw, 36px)" }}>{featured.title}</h4>
+                <p className="mt-4 text-white/60 font-body font-light text-base leading-relaxed max-w-md">{featured.body}</p>
+              </div>
+            </div>
+          </RevealOnView>
+
+          {/* Two stacked personas on right — span 2 columns on lg */}
+          <div className="lg:col-span-2 grid grid-cols-1 gap-5 md:gap-6">
+            {others.map(({ Icon: I, label, title, body }, i) =>
+            <RevealOnView key={title} delay={0.08 + 0.08 * i}>
+                <div className="liquid-glass rounded-2xl p-6 md:p-7 h-full flex gap-5 min-h-[150px]">
+                  <span className="liquid-glass-strong rounded-full w-11 h-11 flex items-center justify-center text-white flex-shrink-0">
+                    <I className="w-4 h-4" />
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-baseline gap-3">
+                      <h4 className="font-heading italic text-white leading-tight" style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>{title}</h4>
+                      <span className="ml-auto text-white/30 font-mono text-[10px] tracking-[0.2em] uppercase flex-shrink-0">{label}</span>
+                    </div>
+                    <p className="mt-2 text-white/55 font-body font-light text-sm leading-relaxed">{body}</p>
+                  </div>
+                </div>
+              </RevealOnView>
+            )}
+          </div>
+        </div>
+
+        <RevealOnView delay={0.3}>
+          <p className="mt-12 md:mt-16 text-center text-white/60 font-body font-light italic text-sm md:text-base max-w-xl mx-auto">
+            If your phone has become your escape, Mulu helps you turn it into a
+            place to breathe and be honest with yourself.
+          </p>
+        </RevealOnView>
+      </div>
+    </section>);
+
+}
+
+/* ------------------------------------------------------------------ */
+/* Faq — single-open accordion                                          */
+/* ------------------------------------------------------------------ */
+function Faq() {
+  const items = [
+  {
+    q: "What is the point of Mulu?",
+    a: "Mulu turns your scrolling reflex into a tiny moment of self-reflection. Instead of disappearing into Instagram or TikTok the moment you feel bored or anxious, you write a few honest lines first. The point isn't to do more — it's to feel a bit calmer and more present each day."
+  },
+  {
+    q: "How does it actually work?",
+    a: "You pick which apps distract you most — Instagram, TikTok, X, news, whatever. When you try to open one, Mulu gently locks it and opens a calm journaling screen instead. Once you write a short check-in (even one sentence), your apps unlock. That's it."
+  },
+  {
+    q: "Will Mulu really help me stop doomscrolling?",
+    a: "Mulu doesn't punish or guilt-trip you. It just adds a tiny pause — enough friction to break the auto-pilot. The journaling part does the heavy lifting: research shows even two minutes of reflective writing reduces stress, lowers anxiety, and helps you notice patterns in your mood. Most people find the urge to scroll quiets down on its own after a few days."
+  },
+  {
+    q: "Are my journal entries private?",
+    a: "Yes, completely. Your entries stay on your phone — Mulu doesn't sync them to a server, doesn't run them through AI, and doesn't share them with anyone. Mulu is one of the few apps that actively wants to see less of you."
+  },
+  {
+    q: "What if I don't know what to write?",
+    a: "One sentence counts. Mulu shows a gentle prompt to get you started, but if all you type is \"I'm tired, that's why I'm reaching for my phone,\" that's a perfect entry. The point is honesty, not literary skill."
+  },
+  {
+    q: "Do I need to journal every day?",
+    a: "Nope. There are no streaks, no scoreboards, no red warnings if you skip. Mulu only shows up when you reach for one of the apps you chose to lock. If you don't open them, Mulu stays out of your way."
+  },
+  {
+    q: "I have another question.",
+    a: "Drop us a line at support@alexanderosso.com — we read every message."
+  }];
+
+
+  const [open, setOpen] = useState(null);
+
+  return (
+    <section id="faq" className="relative bg-black px-6 lg:px-16 py-20 md:py-28">
+      <div className="max-w-3xl mx-auto">
+        <div className="flex flex-col items-center text-center gap-5">
+          <RevealOnView><SectionBadge>Questions you might have</SectionBadge></RevealOnView>
+          <SectionHeading className="text-center" style={{ fontSize: "clamp(34px, 5.5vw, 52px)" }}>A few things, gently answered.</SectionHeading>
+        </div>
+
+        <div className="mt-12 md:mt-16 flex flex-col gap-3">
+          {items.map((it, i) => {
+            const isOpen = open === i;
+            return (
+              <RevealOnView key={it.q} delay={0.04 * i}>
+                <div className="liquid-glass rounded-2xl overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left">
+
+                    <span className="font-heading italic text-white leading-tight" style={{ fontSize: "clamp(18px, 2.6vw, 22px)" }}>
+                      {it.q}
+                    </span>
+                    <span className="liquid-glass-strong rounded-full w-9 h-9 flex items-center justify-center text-white flex-shrink-0 transition-transform duration-300" style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}>
+                      <Plus className="w-4 h-4" />
+                    </span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen &&
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{
+                        height: { duration: 0.35, ease: [0.2, 0.7, 0.2, 1] },
+                        opacity: { duration: 0.25, ease: "easeOut" }
+                      }}
+                      style={{ overflow: "hidden" }}>
+
+                        <div className="px-6 pb-6 -mt-1">
+                          <p className="text-white/70 font-body font-light text-sm md:text-base leading-relaxed">
+                            {it.a}
+                          </p>
+                        </div>
+                      </motion.div>
+                    }
+                  </AnimatePresence>
+                </div>
+              </RevealOnView>);
+
+          })}
+        </div>
+      </div>
+    </section>);
+
+}
+
+/* ------------------------------------------------------------------ */
 /* App                                                                 */
 /* ------------------------------------------------------------------ */
 function App() {
@@ -1760,11 +2022,14 @@ function App() {
         <Navbar />
         <Hero />
         <div className="bg-black">
-          <StartSection />
+          <ResearchBenefits />
           <FeaturesChess />
           <FeaturesGrid />
+          <GentleByDesign />
           <Stats />
+          <Personas />
           <Testimonials />
+          <Faq />
           <CtaFooter />
         </div>
       </div>
