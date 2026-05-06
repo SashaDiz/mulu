@@ -379,6 +379,10 @@
         <li><strong>You&rsquo;re in control.</strong> Delete the app to wipe local data. Revoke AI consent to stop all AI processing. Email us anytime for GDPR/CCPA requests.</li>
       </ul>
 
+      <div class="callout">
+        <strong>A note on what Mulu is.</strong> Mulu is a wellness journaling app, not a medical device or healthcare service. Mulu does not provide medical, psychological, or psychiatric advice, diagnosis, or treatment, and is not a substitute for care from a qualified mental-health professional. We are not a HIPAA covered entity, and the data we handle is not Protected Health Information under HIPAA. If you are in crisis, please reach a local emergency line or a crisis service (for example, 988 in the US, 116&nbsp;123 Samaritans in the UK, or 112 in the EU).
+      </div>
+
       <h2 id="s2"><span class="num">Section 2</span>What We Collect, Where It Goes, and Why</h2>
 
       <h3>2.1 On Your Device (the Default)</h3>
@@ -387,7 +391,7 @@
         <li>Journal entries (text and any voice-dictated text)</li>
         <li>Daily mood values, custom topics, emotion labels, and any name you enter</li>
         <li>App settings and preferences</li>
-        <li>Voice dictation audio. Mulu forces Apple&rsquo;s <strong>on-device</strong> speech recognition, so audio is transcribed locally and the audio itself never leaves your phone</li>
+        <li>Voice dictation audio. Mulu forces Apple&rsquo;s <strong>on-device</strong> speech recognition (<code>requiresOnDeviceRecognition&nbsp;=&nbsp;true</code>), so audio is transcribed locally and the audio itself never leaves your phone</li>
       </ul>
       <div class="callout">
         If you delete the Mulu app, this data is erased with it.
@@ -409,7 +413,7 @@
       </table>
 
       <h3>2.3 Identifiers</h3>
-      <p>We <strong>do not</strong> collect: your email (unless you write to support), your real name (it stays on-device), your phone number, IP address logs, advertising identifiers, or location.</p>
+      <p>We <strong>do not</strong> collect: your email (unless you write to support), your real name (if you enter one during onboarding it stays on-device), your phone number, IP address logs, advertising identifiers (IDFA), location, biometrics, contacts, or photos.</p>
       <p>We <strong>do</strong> collect, narrowly:</p>
       <ul>
         <li>An anonymized install UUID, used by PostHog so we can count distinct installs without knowing who you are.</li>
@@ -421,7 +425,7 @@
       <p>Mulu&rsquo;s optional <strong>&ldquo;Personalize&rdquo;</strong> feature can generate one short, reflective journaling prompt based on your recent entries. This is the only feature in Mulu that sends any journal content off your device, and it only runs after you turn it on.</p>
 
       <h3>3.1 Who Processes the Request</h3>
-      <p>We use <strong>Anthropic, PBC</strong> as our AI sub-processor. Anthropic operates the Claude models we send the request to, and acts under a data processing agreement with us &mdash; they are a processor, not an independent controller of your data.</p>
+      <p>We use <strong>Anthropic, PBC</strong> as our AI sub-processor. Anthropic operates the Claude models we send the request to, and acts under a data processing agreement with us &mdash; they are a processor, not an independent controller of your data. Specifically, Mulu sends Personalize requests to the <strong>Claude <code>claude-haiku-4-5</code></strong> model via Anthropic&rsquo;s Messages API.</p>
 
       <h3>3.2 What Is Sent</h3>
       <p>When you tap to generate a Personalize prompt, the request can include:</p>
@@ -447,8 +451,9 @@
       </div>
 
       <h2 id="s4"><span class="num">Section 4</span>Apple Health</h2>
-      <p>Apple Health integration is opt-in. If you enable it, Mulu <strong>writes</strong> your daily mood (after you&rsquo;ve journaled) into Apple Health&rsquo;s <strong>State of Mind</strong> data type, so it lives alongside your other wellbeing data on your device.</p>
-      <p>Mulu <strong>does not read</strong> any other Apple Health data. The write happens on your device, through Apple&rsquo;s HealthKit framework. Nothing about your Apple Health data is sent to us or to any third party. You can revoke Health permissions anytime in iOS <strong>Settings &rarr; Privacy &amp; Security &rarr; Health</strong>.</p>
+      <p>Apple Health integration is <strong>opt-in</strong> and <strong>write-only</strong>. If you enable it, Mulu writes your daily mood (after you&rsquo;ve journaled) into Apple Health&rsquo;s <strong>State of Mind</strong> data type, so it lives alongside your other wellbeing data on your device. The value we write is a <em>valence</em> derived from your 1&ndash;10 mood slider, with the <code>kind</code> set to <code>dailyMood</code>. Nothing else is written.</p>
+      <p>Mulu <strong>never reads</strong> your Apple Health data. iOS still surfaces a read permission in the system sheet because the platform requires it to grant write access &mdash; we ask for the minimum we need to write, and we use none of what we could read. This is also disclosed in Mulu&rsquo;s <code>NSHealthShareUsageDescription</code> string (&ldquo;Mulu does not read your Health data&hellip;&rdquo;) and <code>NSHealthUpdateUsageDescription</code> string.</p>
+      <p>You can revoke Health permissions at any time, either from inside Mulu under <strong>Settings &rarr; Apple Health</strong>, or from iOS <strong>Settings &rarr; Privacy &amp; Security &rarr; Health &rarr; Mulu</strong>. Past samples written by Mulu remain in your Apple Health database under your control.</p>
 
       <h2 id="s5"><span class="num">Section 5</span>Screen Time (Family Controls)</h2>
       <p>Mulu&rsquo;s gentle &ldquo;pause apps&rdquo; feature uses Apple&rsquo;s <strong>Family Controls / Screen Time API</strong>. If you enable it, you choose which apps to pause and at what time. Apple gives Mulu only opaque tokens for the apps you select &mdash; we cannot see the names of the apps you&rsquo;ve chosen, and no Screen Time data leaves your device.</p>
@@ -467,20 +472,21 @@
       <ul>
         <li>Event names (e.g. <code>journal_completed</code>, <code>paywall_viewed</code>)</li>
         <li>An anonymized stable install UUID</li>
-        <li>Aggregate, self-reported properties from onboarding (age range, gender, your self-reported daily screen-time bucket)</li>
+        <li>Aggregate, self-reported properties from onboarding (age range, gender, daily-screen-time bucket, the goals you picked, and the barriers you flagged)</li>
       </ul>
       <div class="callout">
-        <strong>What PostHog never receives:</strong> the content of your journal entries, your moods, your custom topics, your AI prompts, or any AI inputs or outputs. Analytics events are about behaviour in the app, not what you write.
+        <strong>What PostHog never receives:</strong> the content of your journal entries, your moods, your custom topics, your AI prompts, or any AI inputs or outputs. Analytics events are about behaviour in the app, not what you write. Screen capture is also explicitly disabled (<code>captureScreenViews&nbsp;=&nbsp;false</code>).
       </div>
 
       <h2 id="s8"><span class="num">Section 8</span>Feature Requests (CloudKit)</h2>
-      <p>Mulu has a community Feature Requests board, where you can suggest and vote on ideas. This board uses Apple&rsquo;s <strong>CloudKit public database</strong>. If you choose to post or vote, CloudKit stores:</p>
+      <p>Mulu has a community Feature Requests board, where you can suggest and vote on ideas. This board uses Apple&rsquo;s <strong>CloudKit public database</strong> in your iCloud environment. If you choose to post or vote, CloudKit stores:</p>
       <ul>
         <li>The title and description you wrote</li>
         <li>Vote counts</li>
-        <li>An anonymous CloudKit user record name, used only to prevent duplicate votes</li>
+        <li>An anonymous CloudKit user record identifier, used only to prevent duplicate votes and to let you delete your own posts</li>
       </ul>
-      <p>Nothing from your journal touches the Feature Requests board. You can delete posts you&rsquo;ve made.</p>
+      <p>Nothing from your journal touches the Feature Requests board. You can delete posts you&rsquo;ve made at any time.</p>
+      <p>On first launch, Mulu also seeds eight &ldquo;Mulu Team&rdquo; roadmap items into this public database (for example, &ldquo;Daily affirmations&rdquo; or &ldquo;Breathing exercises&rdquo;), so the board isn&rsquo;t empty. These Mulu Team posts are part of our public roadmap and cannot be deleted by users.</p>
 
       <h2 id="s9"><span class="num">Section 9</span>Children&rsquo;s Privacy</h2>
       <p>Mulu is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with information, please contact us and we will delete it. In jurisdictions where the relevant age is higher (for example, parts of the EU under GDPR), the equivalent local age threshold applies.</p>
