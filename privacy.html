@@ -343,7 +343,7 @@
   <header class="hero">
     <span class="eyebrow"><span class="dot"></span> Legal</span>
     <h1 class="title">Privacy Policy</h1>
-    <div class="updated">Last updated · March 22, 2026</div>
+    <div class="updated">Last updated · May 5, 2026</div>
     <p class="lede">
       Mulu is a journaling and mindfulness application developed by Aleksandr Borisov.
       We are committed to protecting your privacy and being transparent about how we handle your data.
@@ -353,187 +353,189 @@
 
   <div class="article-wrap">
     <nav class="toc">
-      <a href="#s1">1. Information We Collect</a>
-      <a href="#s2">2. How We Use It</a>
-      <a href="#s3">3. Third-Party Services</a>
-      <a href="#s4">4. Data Retention</a>
-      <a href="#s5">5. Data Security</a>
-      <a href="#s6">6. Your Rights</a>
-      <a href="#s7">7. Children</a>
-      <a href="#s8">8. Notifications</a>
-      <a href="#s9">9. Voice &amp; Speech</a>
-      <a href="#s10">10. App Blocking</a>
-      <a href="#s11">11. Cookies &amp; Tracking</a>
-      <a href="#s12">12. Changes</a>
-      <a href="#s13">13. Contact</a>
+      <a href="#s1">1. Summary</a>
+      <a href="#s2">2. What We Collect</a>
+      <a href="#ai">3. AI &amp; Data</a>
+      <a href="#s4">4. Apple Health</a>
+      <a href="#s5">5. Screen Time</a>
+      <a href="#s6">6. Subscriptions</a>
+      <a href="#s7">7. Analytics</a>
+      <a href="#s8">8. Feature Requests</a>
+      <a href="#s9">9. Children&rsquo;s Privacy</a>
+      <a href="#s10">10. Your Rights</a>
+      <a href="#s11">11. Changes</a>
+      <a href="#s12">12. Contact</a>
     </nav>
 
     <article class="doc liquid-glass">
 
-      <h2 id="s1"><span class="num">Section 1</span>Information We Collect</h2>
-
-      <h3>1.1 Information You Provide</h3>
-      <p>When you use Mulu, you may provide the following information:</p>
+      <h2 id="s1"><span class="num">Section 1</span>Summary</h2>
+      <p>The short version, in plain English:</p>
       <ul>
-        <li><strong>Profile information:</strong> Your name, date of birth, and gender (provided during onboarding)</li>
-        <li><strong>Journal entries:</strong> Your written reflections, mood ratings, and emotional descriptions</li>
-        <li><strong>Mood data:</strong> Mood-before and mood-after scores recorded with each journal entry</li>
-        <li><strong>Preferences:</strong> Journal reminder time, snooze duration, writing goal length, selected theme</li>
-        <li><strong>App blocking selections:</strong> The apps and app categories you choose to block (stored as opaque tokens — we never see the actual app names)</li>
-        <li><strong>Feature requests:</strong> Ideas and votes you submit through the Feature Requests section</li>
-        <li><strong>Signature:</strong> A visual commitment signature drawn during onboarding</li>
+        <li><strong>Local by default.</strong> Your journal entries, moods, custom topics, and emotion labels are stored on your device using Apple&rsquo;s SwiftData. We do not run a server that holds your journal, and we cannot read what you write.</li>
+        <li><strong>AI is opt-in.</strong> The &ldquo;Personalize&rdquo; feature uses Anthropic to generate a single reflective prompt. It only runs after you accept an in-app consent screen, and you can turn it off anytime.</li>
+        <li><strong>Your writing is never used to train AI models.</strong> Anthropic does not train on your inputs or outputs.</li>
+        <li><strong>We don&rsquo;t collect your name, email, phone number, IP logs, advertising IDs, or location.</strong> Analytics use an anonymous install ID and never include journal content.</li>
+        <li><strong>You&rsquo;re in control.</strong> Delete the app to wipe local data. Revoke AI consent to stop all AI processing. Email us anytime for GDPR/CCPA requests.</li>
       </ul>
 
-      <h3>1.2 Information Collected Automatically</h3>
-      <p>When you use the App, certain information is collected automatically:</p>
-      <ul>
-        <li><strong>Usage analytics (PostHog):</strong> We track anonymized usage patterns such as which onboarding steps you complete, journal completion rates, and feature engagement.</li>
-        <li><strong>Device information:</strong> Device model, operating system version, app version, and language settings — collected as part of standard analytics.</li>
-        <li><strong>Subscription data (RevenueCat):</strong> Purchase status, subscription type, and transaction identifiers are processed by RevenueCat to manage your subscription.</li>
-        <li><strong>Application lifecycle events:</strong> App opens, background transitions, and session duration.</li>
-      </ul>
+      <h2 id="s2"><span class="num">Section 2</span>What We Collect, Where It Goes, and Why</h2>
 
-      <h3>1.3 Information Stored Locally on Your Device</h3>
+      <h3>2.1 On Your Device (the Default)</h3>
+      <p>The following stay on your iPhone and are never uploaded to a server we operate:</p>
+      <ul>
+        <li>Journal entries (text and any voice-dictated text)</li>
+        <li>Daily mood values, custom topics, emotion labels, and any name you enter</li>
+        <li>App settings and preferences</li>
+        <li>Voice dictation audio. Mulu forces Apple&rsquo;s <strong>on-device</strong> speech recognition, so audio is transcribed locally and the audio itself never leaves your phone</li>
+      </ul>
       <div class="callout">
-        The following data is stored exclusively on your device and is <strong>never transmitted to our servers:</strong>
+        If you delete the Mulu app, this data is erased with it.
       </div>
-      <ul>
-        <li>All journal entries, mood data, and personal reflections</li>
-        <li>Your profile information (name, date of birth, gender)</li>
-        <li>Streak history, settings, and preferences</li>
-        <li>Signature image</li>
-        <li>Voice recordings (processed on-device for speech-to-text, then immediately discarded — only the transcribed text is saved locally)</li>
-        <li>App blocking selections and Screen Time data</li>
-      </ul>
 
-      <h2 id="s2"><span class="num">Section 2</span>How We Use Your Information</h2>
-      <ol>
-        <li><strong>Providing the service:</strong> Storing your journal entries, tracking streaks, managing app blocking, and delivering personalized journal prompts.</li>
-        <li><strong>Improving the App:</strong> Analyzing anonymized usage patterns to understand user behavior, identify issues, and improve the onboarding experience and overall functionality.</li>
-        <li><strong>Managing subscriptions:</strong> Processing and verifying premium subscription purchases through RevenueCat and the Apple App Store.</li>
-        <li><strong>Community features:</strong> Enabling the Feature Requests system where users can submit and vote on ideas (stored in Apple CloudKit).</li>
-        <li><strong>Notifications:</strong> Sending local push notifications to remind you to journal at your chosen time.</li>
-        <li><strong>AI-powered prompts:</strong> Generating personalized journal questions using the Claude API (Anthropic). Only your onboarding preferences — not your journal entries — are used to generate questions.</li>
-      </ol>
-
-      <h2 id="s3"><span class="num">Section 3</span>Third-Party Services</h2>
-      <p>Mulu integrates with the following third-party services, each with their own privacy policies:</p>
+      <h3>2.2 Data That Leaves Your Device (Only in Specific, Narrow Cases)</h3>
+      <p>Each of the services below is described in its own section.</p>
       <table class="svc-table">
         <thead>
-          <tr><th>Service</th><th>Purpose</th><th>Data Shared</th></tr>
+          <tr><th>Service</th><th>When it&rsquo;s used</th><th>What&rsquo;s shared</th></tr>
         </thead>
         <tbody>
-          <tr><td>RevenueCat</td><td>Subscription management</td><td>Purchase transactions, subscription status</td></tr>
-          <tr><td>PostHog</td><td>Product analytics</td><td>Anonymized usage events, device info</td></tr>
-          <tr><td>Apple CloudKit</td><td>Feature requests storage</td><td>Feature request titles, descriptions, votes</td></tr>
-          <tr><td>Anthropic Claude API</td><td>AI journal prompt generation</td><td>Onboarding preferences (no journal content)</td></tr>
-          <tr><td>Apple App Store</td><td>App distribution &amp; purchases</td><td>Standard App Store data</td></tr>
-          <tr><td>Apple Screen Time API</td><td>App blocking functionality</td><td>Opaque app tokens (no app names or usage data leaves the device)</td></tr>
-          <tr><td>Apple Speech Framework</td><td>Voice-to-text transcription</td><td>Audio is processed entirely on-device; no audio data is transmitted</td></tr>
+          <tr><td>Anthropic, PBC</td><td>Only if you opt into AI &ldquo;Personalize&rdquo;</td><td>Up to 5 recent journal entries + moods</td></tr>
+          <tr><td>RevenueCat, Inc.</td><td>If you have a paid subscription</td><td>Anonymized install ID, purchase events, status</td></tr>
+          <tr><td>PostHog, Inc.</td><td>Anonymous product analytics</td><td>Event names + install UUID (no journal content)</td></tr>
+          <tr><td>Apple CloudKit</td><td>Only if you post on Feature Requests</td><td>Title, description, votes, anon record name</td></tr>
+          <tr><td>Apple Health</td><td>Only if you opt in</td><td>Daily mood written to &ldquo;State of Mind&rdquo;</td></tr>
         </tbody>
       </table>
 
-      <h2 id="s4"><span class="num">Section 4</span>Data Retention</h2>
+      <h3>2.3 Identifiers</h3>
+      <p>We <strong>do not</strong> collect: your email (unless you write to support), your real name (it stays on-device), your phone number, IP address logs, advertising identifiers, or location.</p>
+      <p>We <strong>do</strong> collect, narrowly:</p>
       <ul>
-        <li><strong>Local data (journal entries, profile, settings):</strong> Retained on your device until you delete the App or clear its data. You can archive or permanently delete individual entries within the App at any time.</li>
-        <li><strong>Analytics data (PostHog):</strong> Anonymized event data is retained for up to 12 months, after which it is automatically purged.</li>
-        <li><strong>Subscription data (RevenueCat):</strong> Retained for the duration of your subscription and in accordance with RevenueCat's data retention policy.</li>
-        <li><strong>Feature requests (CloudKit):</strong> Retained in Apple's CloudKit infrastructure until you delete them or the feature is discontinued.</li>
-        <li><strong>AI prompt data (Anthropic):</strong> Requests to the Claude API are not stored by Anthropic beyond the processing window, as per their data retention policy.</li>
+        <li>An anonymized install UUID, used by PostHog so we can count distinct installs without knowing who you are.</li>
+        <li>An anonymous CloudKit user record name, only if you post on the Feature Requests board, so duplicate votes can be prevented.</li>
       </ul>
 
-      <h2 id="s5"><span class="num">Section 5</span>Data Security</h2>
-      <p>We take the security of your data seriously:</p>
+      <a id="ai"></a>
+      <h2 id="s3"><span class="num">Section 3</span>AI &amp; Data (the &ldquo;Personalize&rdquo; Feature)</h2>
+      <p>Mulu&rsquo;s optional <strong>&ldquo;Personalize&rdquo;</strong> feature can generate one short, reflective journaling prompt based on your recent entries. This is the only feature in Mulu that sends any journal content off your device, and it only runs after you turn it on.</p>
+
+      <h3>3.1 Who Processes the Request</h3>
+      <p>We use <strong>Anthropic, PBC</strong> as our AI sub-processor. Anthropic operates the Claude models we send the request to, and acts under a data processing agreement with us &mdash; they are a processor, not an independent controller of your data.</p>
+
+      <h3>3.2 What Is Sent</h3>
+      <p>When you tap to generate a Personalize prompt, the request can include:</p>
       <ul>
-        <li><strong>Local encryption:</strong> Journal entries and personal data are stored in the iOS app sandbox, protected by the device's built-in encryption.</li>
-        <li><strong>Transit encryption:</strong> All network communications use HTTPS/TLS encryption.</li>
-        <li><strong>No central database:</strong> Your personal journal data never leaves your device. There is no central server storing your entries.</li>
-        <li><strong>Minimal data collection:</strong> We follow the principle of data minimization — we only collect what is necessary to provide and improve the service.</li>
-        <li><strong>Screen Time data isolation:</strong> App blocking uses Apple's opaque token system, meaning we never have access to the names of blocked apps or any Screen Time usage data.</li>
+        <li>Up to your last <strong>5 journal entries</strong></li>
+        <li>The mood values associated with those entries</li>
+        <li>Today&rsquo;s mood, if available</li>
       </ul>
-      <p>While we implement industry-standard security measures, no method of electronic storage or transmission is 100% secure. We cannot guarantee absolute security.</p>
+      <p>You can turn off historic-entry sharing in <strong>Settings &rarr; AI &amp; Data</strong>. With that toggle off, only today&rsquo;s mood (no journal text) is sent.</p>
 
-      <h2 id="s6"><span class="num">Section 6</span>Your Rights</h2>
-      <p>You have the following rights regarding your personal data:</p>
+      <h3>3.3 What Anthropic Does With It</h3>
       <ul>
-        <li><strong>Access:</strong> You can view all your data directly within the App (journal entries, profile, settings).</li>
-        <li><strong>Export:</strong> Premium users can export their journal data in JSON or CSV format.</li>
-        <li><strong>Deletion:</strong> You can delete individual entries (archive or permanent delete), or delete all data by uninstalling the App.</li>
-        <li><strong>Opt-out of analytics:</strong> You can request to opt out of PostHog analytics by contacting us.</li>
-        <li><strong>Notification control:</strong> You can enable or disable push notifications at any time through iOS Settings or within the App.</li>
-        <li><strong>Subscription management:</strong> You can manage or cancel your subscription through the Apple App Store.</li>
-      </ul>
-
-      <h3>For EU/EEA Residents (GDPR)</h3>
-      <p>If you reside in the European Union or European Economic Area, you have additional rights under the General Data Protection Regulation (GDPR):</p>
-      <ul>
-        <li><strong>Right to rectification:</strong> Request correction of inaccurate personal data.</li>
-        <li><strong>Right to erasure:</strong> Request deletion of your personal data.</li>
-        <li><strong>Right to portability:</strong> Receive your data in a structured, commonly used format.</li>
-        <li><strong>Right to restrict processing:</strong> Request limitation of how we process your data.</li>
-        <li><strong>Right to object:</strong> Object to the processing of your data for specific purposes.</li>
-      </ul>
-      <p>To exercise any GDPR rights, please contact us at <a href="mailto:support@alexanderosso.com" data-fast-goal="email_support" data-fast-goal-context="privacy">support@alexanderosso.com</a> with the subject line "GDPR Request." We will respond within 30 days.</p>
-      <p>You also have the right to lodge a complaint with your local data protection authority.</p>
-
-      <h2 id="s7"><span class="num">Section 7</span>Children's Privacy</h2>
-      <p>Mulu is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal data, please contact us and we will take steps to delete such information.</p>
-      <p>Users between 13 and 18 years of age should use the App with parental or guardian consent.</p>
-
-      <h2 id="s8"><span class="num">Section 8</span>Push Notifications</h2>
-      <p>Mulu uses <strong>local push notifications only</strong> to remind you to journal at your scheduled time. These notifications are:</p>
-      <ul>
-        <li>Generated entirely on your device</li>
-        <li>Not sent through any external push notification service</li>
-        <li>Fully customizable (time, on/off) within the App and iOS Settings</li>
-      </ul>
-      <p>We do not use push notifications for marketing or promotional purposes.</p>
-
-      <h2 id="s9"><span class="num">Section 9</span>Voice Recording &amp; Speech Recognition</h2>
-      <p>When you use the voice journaling feature:</p>
-      <ul>
-        <li>Audio is captured by the device microphone and processed <strong>entirely on-device</strong> using Apple's Speech Recognition framework.</li>
-        <li>The audio is converted to text in real-time and is <strong>immediately discarded</strong> after transcription.</li>
-        <li>No audio recordings are stored, transmitted, or shared with any third party.</li>
-        <li>Speech recognition uses the language set on your device.</li>
+        <li><strong>Not used for training.</strong> Anthropic does not use your inputs or outputs to train its models.</li>
+        <li><strong>Short retention.</strong> Anthropic retains inputs and outputs for <strong>no longer than 30 days</strong>, solely for safety and abuse monitoring, after which they are deleted.</li>
+        <li><strong>No advertising use.</strong> Your data is not used for ads, profiling, or sold to anyone.</li>
       </ul>
 
-      <h2 id="s10"><span class="num">Section 10</span>App Blocking &amp; Screen Time</h2>
-      <p>Mulu uses Apple's Screen Time API (FamilyControls framework) to block distracting apps:</p>
+      <h3>3.4 Consent and Revocation</h3>
+      <p>Before any AI request can be made, you must read and accept the in-app &ldquo;AI Privacy &amp; Data&rdquo; consent screen. You can revoke that consent anytime in <strong>Settings &rarr; AI &amp; Data</strong>. Once revoked, Mulu stops making AI calls. You can also tap <strong>&ldquo;Delete AI cache&rdquo;</strong> in that screen to remove any AI prompts cached locally on your device.</p>
+
+      <div class="callout">
+        This section is provided in line with Apple&rsquo;s App Review Guideline 5.1.1(ix), which requires apps using third-party AI to process personal or health-related data to disclose it clearly and obtain consent. It also forms part of the information we give you under GDPR Article 13.
+      </div>
+
+      <h2 id="s4"><span class="num">Section 4</span>Apple Health</h2>
+      <p>Apple Health integration is opt-in. If you enable it, Mulu <strong>writes</strong> your daily mood (after you&rsquo;ve journaled) into Apple Health&rsquo;s <strong>State of Mind</strong> data type, so it lives alongside your other wellbeing data on your device.</p>
+      <p>Mulu <strong>does not read</strong> any other Apple Health data. The write happens on your device, through Apple&rsquo;s HealthKit framework. Nothing about your Apple Health data is sent to us or to any third party. You can revoke Health permissions anytime in iOS <strong>Settings &rarr; Privacy &amp; Security &rarr; Health</strong>.</p>
+
+      <h2 id="s5"><span class="num">Section 5</span>Screen Time (Family Controls)</h2>
+      <p>Mulu&rsquo;s gentle &ldquo;pause apps&rdquo; feature uses Apple&rsquo;s <strong>Family Controls / Screen Time API</strong>. If you enable it, you choose which apps to pause and at what time. Apple gives Mulu only opaque tokens for the apps you select &mdash; we cannot see the names of the apps you&rsquo;ve chosen, and no Screen Time data leaves your device.</p>
+
+      <h2 id="s6"><span class="num">Section 6</span>Subscriptions (RevenueCat)</h2>
+      <p>If you subscribe to a paid plan, billing and entitlements are handled by Apple&rsquo;s App Store and managed in our app via <strong>RevenueCat, Inc.</strong> RevenueCat receives:</p>
       <ul>
-        <li>You select which apps to block through Apple's standard app picker.</li>
-        <li>App selections are stored as <strong>opaque tokens</strong> — we cannot see or access the actual names of your apps.</li>
-        <li>Screen Time data never leaves your device.</li>
-        <li>All blocking logic runs locally on your device.</li>
-        <li>You maintain full control: you can modify blocked apps, use snooze, or perform an emergency unlock at any time.</li>
+        <li>An anonymized install ID</li>
+        <li>Purchase and subscription events (e.g. trial started, renewed, cancelled)</li>
+        <li>Your current subscription status</li>
+      </ul>
+      <p>RevenueCat does not receive any journal content, mood values, or AI inputs/outputs. Your payment details are handled by Apple, not by us or RevenueCat. See RevenueCat&rsquo;s privacy policy for their practices.</p>
+
+      <h2 id="s7"><span class="num">Section 7</span>Analytics (PostHog)</h2>
+      <p>We use <strong>PostHog, Inc.</strong> to understand which features people use, so we can improve Mulu. PostHog receives:</p>
+      <ul>
+        <li>Event names (e.g. <code>journal_completed</code>, <code>paywall_viewed</code>)</li>
+        <li>An anonymized stable install UUID</li>
+        <li>Aggregate, self-reported properties from onboarding (age range, gender, your self-reported daily screen-time bucket)</li>
+      </ul>
+      <div class="callout">
+        <strong>What PostHog never receives:</strong> the content of your journal entries, your moods, your custom topics, your AI prompts, or any AI inputs or outputs. Analytics events are about behaviour in the app, not what you write.
+      </div>
+
+      <h2 id="s8"><span class="num">Section 8</span>Feature Requests (CloudKit)</h2>
+      <p>Mulu has a community Feature Requests board, where you can suggest and vote on ideas. This board uses Apple&rsquo;s <strong>CloudKit public database</strong>. If you choose to post or vote, CloudKit stores:</p>
+      <ul>
+        <li>The title and description you wrote</li>
+        <li>Vote counts</li>
+        <li>An anonymous CloudKit user record name, used only to prevent duplicate votes</li>
+      </ul>
+      <p>Nothing from your journal touches the Feature Requests board. You can delete posts you&rsquo;ve made.</p>
+
+      <h2 id="s9"><span class="num">Section 9</span>Children&rsquo;s Privacy</h2>
+      <p>Mulu is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with information, please contact us and we will delete it. In jurisdictions where the relevant age is higher (for example, parts of the EU under GDPR), the equivalent local age threshold applies.</p>
+
+      <h2 id="s10"><span class="num">Section 10</span>Your Rights</h2>
+
+      <h3>10.1 For Everyone</h3>
+      <ul>
+        <li><strong>Erase local data:</strong> delete the Mulu app from your device. All journal entries, moods, and settings stored on-device are erased.</li>
+        <li><strong>Stop AI processing:</strong> revoke consent in <strong>Settings &rarr; AI &amp; Data</strong>. Use <strong>&ldquo;Delete AI cache&rdquo;</strong> to clear cached AI responses on-device.</li>
+        <li><strong>Stop Health writes:</strong> turn off Mulu&rsquo;s permission in iOS <strong>Settings &rarr; Privacy &amp; Security &rarr; Health</strong>.</li>
+        <li><strong>Delete a Feature Request post:</strong> tap delete on your own post.</li>
       </ul>
 
-      <h2 id="s11"><span class="num">Section 11</span>Cookies &amp; Tracking</h2>
+      <h3>10.2 EEA, UK, and Switzerland (GDPR)</h3>
+      <p>Under the General Data Protection Regulation, you have the rights to:</p>
       <ul>
-        <li>Mulu does <strong>not</strong> use cookies.</li>
-        <li>Mulu does <strong>not</strong> use advertising trackers or share data with ad networks.</li>
-        <li>Mulu does <strong>not</strong> track you across other apps or websites.</li>
-        <li>We do <strong>not</strong> use IDFA (Identifier for Advertisers).</li>
-        <li>PostHog may use similar technologies for analytics purposes within the App only.</li>
+        <li><strong>Be informed</strong> about the processing of your data (Article 13) &mdash; this policy is our notice.</li>
+        <li><strong>Access</strong> the data we hold about you (Article 15).</li>
+        <li><strong>Erasure</strong> of your data, where applicable (Article 17).</li>
+        <li><strong>Portability</strong> &mdash; receive your data in a structured, commonly used format (Article 20).</li>
+        <li>Rectification, restriction, and the right to object to processing.</li>
+        <li>Lodge a complaint with your local supervisory authority.</li>
       </ul>
+      <p>Because most of your data lives only on your device, the fastest way to exercise access, portability, and erasure is on the device itself. For anything we hold off-device (analytics events keyed to your install UUID, AI request retention with Anthropic, RevenueCat subscription records, Feature Requests posts), email us and we will help.</p>
+      <p><strong>Legal bases.</strong> We rely on your <strong>consent</strong> for the AI feature, Apple Health writes, Screen Time access, and Feature Requests posting. We rely on <strong>legitimate interests</strong> for low-level anonymized analytics used to improve the app, and on <strong>performance of a contract</strong> for subscription management.</p>
 
-      <h2 id="s12"><span class="num">Section 12</span>Changes to This Privacy Policy</h2>
-      <p>We may update this Privacy Policy from time to time. When we do:</p>
+      <h3>10.3 California (CCPA / CPRA)</h3>
+      <p>Under the California Consumer Privacy Act and CPRA, you have the rights to:</p>
       <ul>
-        <li>The "Last Updated" date at the top will be revised.</li>
-        <li>For material changes, we will notify you through an in-app notice.</li>
-        <li>Continued use of the App after changes constitutes acceptance of the updated policy.</li>
+        <li><strong>Know</strong> what personal information we collect and how it&rsquo;s used (&sect;1798.100)</li>
+        <li><strong>Delete</strong> personal information we hold about you (&sect;1798.105)</li>
+        <li><strong>Opt out of the sale or sharing</strong> of personal information (&sect;1798.120)</li>
+        <li>Correct inaccurate information and limit use of sensitive information.</li>
+        <li>Be free from discrimination for exercising these rights.</li>
       </ul>
+      <div class="callout">
+        <strong>We do not sell your personal information, and we do not share it for cross-context behavioural advertising.</strong>
+      </div>
 
-      <h2 id="s13"><span class="num">Section 13</span>Contact Us</h2>
-      <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
+      <h3>10.4 How to Exercise These Rights</h3>
+      <p>Email <a href="mailto:support@alexanderosso.com" data-fast-goal="email_support" data-fast-goal-context="privacy">support@alexanderosso.com</a> with your request. We may need to verify it relates to your install (for example, by asking you to send a request from within the app). We aim to respond within 30 days.</p>
+
+      <h2 id="s11"><span class="num">Section 11</span>Changes to This Policy</h2>
+      <p>If we change this policy, we&rsquo;ll update the <strong>Last updated</strong> date at the top. For changes that materially affect how your data is handled &mdash; for example, a new sub-processor, a new data type sent off-device, or a change to AI retention &mdash; we&rsquo;ll also notify you in the app before the change takes effect, so you have a chance to review and, if you wish, revoke your consent.</p>
+
+      <h2 id="s12"><span class="num">Section 12</span>Contact</h2>
+      <p>Questions, requests, or concerns about your privacy? We&rsquo;re here for it.</p>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:support@alexanderosso.com" data-fast-goal="email_support" data-fast-goal-context="privacy">support@alexanderosso.com</a></li>
         <li><strong>Developer:</strong> Aleksandr Borisov</li>
         <li><strong>App:</strong> Mulu</li>
         <li><strong>Location:</strong> Argentina</li>
       </ul>
-      <p>We aim to respond to all inquiries within 30 days.</p>
+      <p>We aim to respond within 30 days.</p>
 
       <hr class="rule" />
       <p style="text-align:center; color: rgba(255,255,255,0.45); font-size: 13px; margin: 0;">
@@ -552,9 +554,9 @@
       <a href="https://www.youtube.com/@mulujournal" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-fast-goal="social_click" data-fast-goal-platform="youtube"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/></svg></a>
     </div>
     <div class="foot-links">
-      <a href="Privacy.html" data-fast-goal="open_privacy">Privacy</a>
-      <a href="Terms.html" data-fast-goal="open_terms">Terms</a>
-      <a href="Support.html" data-fast-goal="open_support">Support</a>
+      <a href="/privacy" data-fast-goal="open_privacy">Privacy</a>
+      <a href="/terms" data-fast-goal="open_terms">Terms</a>
+      <a href="/support" data-fast-goal="open_support">Support</a>
     </div>
   </div>
 </footer>

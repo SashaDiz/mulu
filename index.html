@@ -1673,9 +1673,9 @@ function CtaFooter() {
 
             <div className="flex items-center gap-6">
               {[
-              { label: "Privacy", href: "Privacy.html" },
-              { label: "Terms", href: "Terms.html" },
-              { label: "Support", href: "Support.html" }].
+              { label: "Privacy", href: "/privacy" },
+              { label: "Terms", href: "/terms" },
+              { label: "Support", href: "/support" }].
               map((l) =>
               <a key={l.label} href={l.href} data-fast-goal={`open_${l.label.toLowerCase()}`} className="text-white/40 hover:text-white/80 text-xs font-body transition-colors">{l.label}</a>
               )}
