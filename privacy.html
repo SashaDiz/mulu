@@ -343,7 +343,7 @@
   <header class="hero">
     <span class="eyebrow"><span class="dot"></span> Legal</span>
     <h1 class="title">Privacy Policy</h1>
-    <div class="updated">Last updated · May 5, 2026</div>
+    <div class="updated">Last updated · May 12, 2026</div>
     <p class="lede">
       Mulu is a journaling and mindfulness application developed by Aleksandr Borisov.
       We are committed to protecting your privacy and being transparent about how we handle your data.
@@ -406,7 +406,7 @@
         <tbody>
           <tr><td>Anthropic, PBC</td><td>Only if you opt into AI &ldquo;Personalize&rdquo;</td><td>Up to 5 recent journal entries + moods</td></tr>
           <tr><td>RevenueCat, Inc.</td><td>If you have a paid subscription</td><td>Anonymized install ID, purchase events, status</td></tr>
-          <tr><td>PostHog, Inc.</td><td>Anonymous product analytics</td><td>Event names + install UUID (no journal content)</td></tr>
+          <tr><td>PostHog, Inc.</td><td>Anonymous product analytics &amp; A/B tests</td><td>Event names, install UUID, onboarding answers, mood numbers, experiment variant (no journal text)</td></tr>
           <tr><td>Apple CloudKit</td><td>Only if you post on Feature Requests</td><td>Title, description, votes, anon record name</td></tr>
           <tr><td>Apple Health</td><td>Only if you opt in</td><td>Daily mood written to &ldquo;State of Mind&rdquo;</td></tr>
         </tbody>
@@ -470,13 +470,21 @@
       <h2 id="s7"><span class="num">Section 7</span>Analytics (PostHog)</h2>
       <p>We use <strong>PostHog, Inc.</strong> to understand which features people use, so we can improve Mulu. PostHog receives:</p>
       <ul>
-        <li>Event names (e.g. <code>journal_completed</code>, <code>paywall_viewed</code>)</li>
-        <li>An anonymized stable install UUID</li>
-        <li>Aggregate, self-reported properties from onboarding (age range, gender, daily-screen-time bucket, the goals you picked, and the barriers you flagged)</li>
+        <li>Event names tied to in-app behaviour (e.g. <code>onboarding_step_viewed</code>, <code>journal_completed</code>, <code>paywall_viewed</code>, <code>paywall_purchased</code>, <code>paywall_restored</code>)</li>
+        <li>An anonymized stable install UUID, persisted on your device so funnel rows stay tied to one user across launches</li>
+        <li>Self-reported onboarding properties: age range, gender, daily-screen-time bucket, the goals you picked, the barriers you flagged, the deeper struggles you flagged, and your commitment level</li>
+        <li>Lightweight install metadata: the date you first launched the app, the app version you first installed on, and your current in-app language preference &mdash; used to size cohorts (e.g. &ldquo;users who installed in March&rdquo;) and to know which translation is being used most</li>
+        <li>The numeric mood values (1&ndash;10) you record at the start and end of a journal entry, plus the entry&rsquo;s word count and calculated mood shift &mdash; sent with the <code>journal_completed</code> event so we can measure whether journaling changes mood at a population level. <strong>The text of your journal entry is not sent.</strong></li>
+        <li>Aggregate timing from onboarding: how long a screen was on display, total time in the onboarding flow, and (when you leave mid-flow) whether the cause was dismissing the app or backgrounding it &mdash; used to find slow or confusing screens</li>
+        <li>The variant of the onboarding A/B test you were assigned to (see section&nbsp;7.1)</li>
       </ul>
       <div class="callout">
-        <strong>What PostHog never receives:</strong> the content of your journal entries, your moods, your custom topics, your AI prompts, or any AI inputs or outputs. Analytics events are about behaviour in the app, not what you write. Screen capture is also explicitly disabled (<code>captureScreenViews&nbsp;=&nbsp;false</code>).
+        <strong>What PostHog never receives:</strong> the text of your journal entries, your custom topics, the title or text of your AI &ldquo;Personalize&rdquo; prompts, or any AI inputs or outputs. Analytics events are about behaviour in the app, not about what you write. Apple&rsquo;s automatic screen-view capture is also explicitly disabled (<code>captureScreenViews&nbsp;=&nbsp;false</code>), and the install UUID is never linked to your name, email, IP address, IDFA, or any device-level identifier.
       </div>
+
+      <h3>7.1 A/B Tests &amp; Feature Flags</h3>
+      <p>We use PostHog&rsquo;s feature-flag system to run product experiments &mdash; for example, to compare different orderings of the onboarding flow and find the clearest one. On first launch, PostHog assigns you to a stable variant of an active experiment (e.g. <code>onboarding_steps_v1</code> &rarr; <code>control</code> or <code>variant_a</code>), and that variant name is attached as a property on the analytics events listed above so we can compare outcomes between groups.</p>
+      <p>The assignment is purely anonymous &mdash; it&rsquo;s tied to your install UUID, not to you as a person. Required parts of the experience (the subscription paywall, the Screen Time authorization step, and the app picker) are guaranteed to appear in every variant; experiments cannot be used to disable safety information or the consent screens described elsewhere in this policy.</p>
 
       <h2 id="s8"><span class="num">Section 8</span>Feature Requests (CloudKit)</h2>
       <p>Mulu has a community Feature Requests board, where you can suggest and vote on ideas. This board uses Apple&rsquo;s <strong>CloudKit public database</strong> in your iCloud environment. If you choose to post or vote, CloudKit stores:</p>
