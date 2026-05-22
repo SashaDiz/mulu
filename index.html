@@ -507,7 +507,7 @@ function RevealOnView({ children, delay = 0, y = 30, className = "" }) {
 /* ------------------------------------------------------------------ */
 /* Video background w/ graceful fallback                                */
 /* ------------------------------------------------------------------ */
-function VideoBg({ src, poster, className = "", desaturate = false, fit = "cover", style = {} }) {
+function VideoBg({ src, poster, className = "", desaturate = false, fit = "cover", style = {}, videoClassName = "" }) {
   const ref = useRef(null);
   const [ok, setOk] = useState(true);
   useEffect(() => {
@@ -520,8 +520,9 @@ function VideoBg({ src, poster, className = "", desaturate = false, fit = "cover
     if (p && p.catch) p.catch(() => {});
     return () => v.removeEventListener("error", onErr);
   }, []);
+  const fitClass = videoClassName || (fit === "cover" ? "object-cover" : "object-contain");
   return (
-    <div className={`absolute inset-0 ${className}`} style={style}>
+    <div className={`absolute inset-0 ${className}`}>
       {ok ?
       <video
         ref={ref}
@@ -530,8 +531,8 @@ function VideoBg({ src, poster, className = "", desaturate = false, fit = "cover
         muted
         playsInline
         poster={poster}
-        className={`w-full h-full ${fit === "cover" ? "object-cover" : "object-contain"}`}
-        style={{ filter: desaturate ? "saturate(0)" : "none" }}>
+        className={`w-full h-full ${fitClass}`}
+        style={{ filter: desaturate ? "saturate(0)" : "none", ...style }}>
         
           <source src={src} type="video/mp4" />
         </video> :
@@ -1046,25 +1047,29 @@ function Hero() {
         
         <div className="relative w-full h-full">
           <VideoBg
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4"
+            src="uploads/hero-bg.mp4"
             poster="/images/hero_bg.jpeg"
-            fit="cover"
-            style={{ objectPosition: "bottom" }} />
-          
+            videoClassName="w-full h-full object-cover object-right md:object-contain md:object-center" />
+
           {/* edge fades — left & right */}
           <div
             className="absolute inset-y-0 left-0 pointer-events-none"
-            style={{ width: 180, background: "linear-gradient(to right, #000, transparent)" }} />
-          
+            style={{ width: 220, background: "linear-gradient(to right, #000, transparent)" }} />
+
           <div
             className="absolute inset-y-0 right-0 pointer-events-none"
-            style={{ width: 180, background: "linear-gradient(to left, #000, transparent)" }} />
-          
+            style={{ width: 220, background: "linear-gradient(to left, #000, transparent)" }} />
+
           {/* fade video into black at the top so it blends with the dark hero */}
           <div
             className="absolute top-0 left-0 right-0 pointer-events-none"
-            style={{ height: 260, background: "linear-gradient(to top, transparent, #000)" }} />
-          
+            style={{ height: 600, background: "linear-gradient(to top, transparent, #000 75%)" }} />
+
+          {/* fade video into black at the bottom to hide the lower edge */}
+          <div
+            className="absolute bottom-0 left-0 right-0 pointer-events-none"
+            style={{ height: 280, background: "linear-gradient(to bottom, transparent, #000)" }} />
+
         </div>
       </div>
 
