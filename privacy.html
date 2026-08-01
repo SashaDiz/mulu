@@ -343,7 +343,7 @@
   <header class="hero">
     <span class="eyebrow"><span class="dot"></span> Legal</span>
     <h1 class="title">Privacy Policy</h1>
-    <div class="updated">Last updated · May 12, 2026</div>
+    <div class="updated">Last updated · August 1, 2026</div>
     <p class="lede">
       Mulu is a journaling and mindfulness application developed by Aleksandr Borisov.
       We are committed to protecting your privacy and being transparent about how we handle your data.
@@ -373,6 +373,7 @@
       <p>The short version, in plain English:</p>
       <ul>
         <li><strong>Local by default.</strong> Your journal entries, moods, custom topics, and emotion labels are stored on your device using Apple&rsquo;s SwiftData. We do not run a server that holds your journal, and we cannot read what you write.</li>
+        <li><strong>Voice dictation goes through Apple.</strong> If you tap the microphone to dictate an entry, the recording is sent to Apple&rsquo;s speech recognition service to be turned into text, then deleted. Typing sends nothing anywhere.</li>
         <li><strong>AI is opt-in.</strong> The &ldquo;Personalize&rdquo; feature uses Anthropic to generate a single reflective prompt. It only runs after you accept an in-app consent screen, and you can turn it off anytime.</li>
         <li><strong>Your writing is never used to train AI models.</strong> Anthropic does not train on your inputs or outputs.</li>
         <li><strong>We don&rsquo;t collect your name, email, phone number, IP logs, advertising IDs, or location.</strong> Analytics use an anonymous install ID and never include journal content.</li>
@@ -391,8 +392,8 @@
         <li>Journal entries (text and any voice-dictated text)</li>
         <li>Daily mood values, custom topics, emotion labels, and any name you enter</li>
         <li>App settings and preferences</li>
-        <li>Voice dictation audio. Mulu forces Apple&rsquo;s <strong>on-device</strong> speech recognition (<code>requiresOnDeviceRecognition&nbsp;=&nbsp;true</code>), so audio is transcribed locally and the audio itself never leaves your phone</li>
       </ul>
+      <p>Voice dictation is the exception: the recording itself is sent to Apple to be transcribed. See <a href="#s2-4">2.4</a>.</p>
       <div class="callout">
         If you delete the Mulu app, this data is erased with it.
       </div>
@@ -409,6 +410,7 @@
           <tr><td>PostHog, Inc.</td><td>Anonymous product analytics &amp; A/B tests</td><td>Event names, install UUID, onboarding answers, mood numbers, experiment variant (no journal text)</td></tr>
           <tr><td>Apple CloudKit</td><td>Only if you post on Feature Requests</td><td>Title, description, votes, anon record name</td></tr>
           <tr><td>Apple Health</td><td>Only if you opt in</td><td>Daily mood written to &ldquo;State of Mind&rdquo;</td></tr>
+          <tr><td>Apple Speech Recognition</td><td>Only if you dictate instead of typing</td><td>The audio recording of what you said</td></tr>
         </tbody>
       </table>
 
@@ -420,9 +422,21 @@
         <li>An anonymous CloudKit user record name, only if you post on the Feature Requests board, so duplicate votes can be prevented.</li>
       </ul>
 
+      <h3 id="s2-4">2.4 Voice Dictation</h3>
+      <p>Mulu lets you dictate a journal entry instead of typing it. If you tap the microphone, Mulu records your voice to a temporary audio file on your device and hands that file to <strong>Apple&rsquo;s Speech Recognition service</strong> to be turned into text. Apple processes the audio; we never receive it, and it is never sent to any other company.</p>
+      <ul>
+        <li>A single recording is capped at 60 seconds.</li>
+        <li>The audio file sits in Mulu&rsquo;s temporary storage only until the transcription comes back, and is deleted immediately afterwards. It is not kept, backed up, or synced.</li>
+        <li>Only the resulting text is placed in your entry, where it stays on your device like anything you type.</li>
+        <li>Dictation is entirely optional and never runs on its own. It starts only when you tap the microphone, and it needs the microphone and speech recognition permissions, which iOS asks you for the first time you use it. Decline either one and the journal still works fully by typing.</li>
+      </ul>
+      <p>
+        Earlier versions of Mulu required Apple&rsquo;s <strong>on-device</strong> recognition, which kept audio on the phone. On-device accuracy turned out to be too poor to be usable, so Mulu now uses Apple&rsquo;s standard speech recognition, which may process the audio on Apple&rsquo;s servers, and falls back to on-device recognition when there is no network. Apple&rsquo;s handling of that audio is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple&rsquo;s Privacy Policy</a>, not ours.
+      </p>
+
       <a id="ai"></a>
       <h2 id="s3"><span class="num">Section 3</span>AI &amp; Data (the &ldquo;Personalize&rdquo; Feature)</h2>
-      <p>Mulu&rsquo;s optional <strong>&ldquo;Personalize&rdquo;</strong> feature can generate one short, reflective journaling prompt based on your recent entries. This is the only feature in Mulu that sends any journal content off your device, and it only runs after you turn it on.</p>
+      <p>Mulu&rsquo;s optional <strong>&ldquo;Personalize&rdquo;</strong> feature can generate one short, reflective journaling prompt based on your recent entries. Apart from voice dictation (<a href="#s2-4">2.4</a>), this is the only feature in Mulu that sends any journal content off your device, and it only runs after you turn it on.</p>
 
       <h3>3.1 Who Processes the Request</h3>
       <p>We use <strong>Anthropic, PBC</strong> as our AI sub-processor. Anthropic operates the Claude models we send the request to, and acts under a data processing agreement with us &mdash; they are a processor, not an independent controller of your data. Specifically, Mulu sends Personalize requests to the <strong>Claude <code>claude-haiku-4-5</code></strong> model via Anthropic&rsquo;s Messages API.</p>
@@ -520,7 +534,7 @@
         <li>Lodge a complaint with your local supervisory authority.</li>
       </ul>
       <p>Because most of your data lives only on your device, the fastest way to exercise access, portability, and erasure is on the device itself. For anything we hold off-device (analytics events keyed to your install UUID, AI request retention with Anthropic, RevenueCat subscription records, Feature Requests posts), email us and we will help.</p>
-      <p><strong>Legal bases.</strong> We rely on your <strong>consent</strong> for the AI feature, Apple Health writes, Screen Time access, and Feature Requests posting. We rely on <strong>legitimate interests</strong> for low-level anonymized analytics used to improve the app, and on <strong>performance of a contract</strong> for subscription management.</p>
+      <p><strong>Legal bases.</strong> We rely on your <strong>consent</strong> for the AI feature, voice dictation, Apple Health writes, Screen Time access, and Feature Requests posting. We rely on <strong>legitimate interests</strong> for low-level anonymized analytics used to improve the app, and on <strong>performance of a contract</strong> for subscription management.</p>
 
       <h3>10.3 California (CCPA / CPRA)</h3>
       <p>Under the California Consumer Privacy Act and CPRA, you have the rights to:</p>
