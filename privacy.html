@@ -343,7 +343,7 @@
   <header class="hero">
     <span class="eyebrow"><span class="dot"></span> Legal</span>
     <h1 class="title">Privacy Policy</h1>
-    <div class="updated">Last updated · August 1, 2026</div>
+    <div class="updated">Last updated · September 30, 2026</div>
     <p class="lede">
       Mulu is a journaling and mindfulness application developed by Aleksandr Borisov.
       We are committed to protecting your privacy and being transparent about how we handle your data.
@@ -356,15 +356,16 @@
       <a href="#s1">1. Summary</a>
       <a href="#s2">2. What We Collect</a>
       <a href="#ai">3. AI &amp; Data</a>
-      <a href="#s4">4. Apple Health</a>
-      <a href="#s5">5. Screen Time</a>
-      <a href="#s6">6. Subscriptions</a>
-      <a href="#s7">7. Analytics</a>
-      <a href="#s8">8. Feature Requests</a>
-      <a href="#s9">9. Children&rsquo;s Privacy</a>
-      <a href="#s10">10. Your Rights</a>
-      <a href="#s11">11. Changes</a>
-      <a href="#s12">12. Contact</a>
+      <a href="#deeper">4. Deeper Conversations</a>
+      <a href="#s5">5. Apple Health</a>
+      <a href="#s6">6. Screen Time</a>
+      <a href="#s7">7. Subscriptions</a>
+      <a href="#s8">8. Analytics</a>
+      <a href="#s9">9. Feature Requests</a>
+      <a href="#s10">10. Children&rsquo;s Privacy</a>
+      <a href="#s11">11. Your Rights</a>
+      <a href="#s12">12. Changes</a>
+      <a href="#s13">13. Contact</a>
     </nav>
 
     <article class="doc liquid-glass">
@@ -372,12 +373,12 @@
       <h2 id="s1"><span class="num">Section 1</span>Summary</h2>
       <p>The short version, in plain English:</p>
       <ul>
-        <li><strong>Local by default.</strong> Your journal entries, moods, custom topics, and emotion labels are stored on your device using Apple&rsquo;s SwiftData. We do not run a server that holds your journal, and we cannot read what you write.</li>
+        <li><strong>Private by default.</strong> Your journal entries, moods, custom topics, and Deeper conversations are stored on your device and, if iCloud is on, synced through <strong>your own private iCloud</strong> so they appear on your other devices. We do not run a server that holds your journal, and we cannot read what you write.</li>
         <li><strong>Voice dictation goes through Apple.</strong> If you tap the microphone to dictate an entry, the recording is sent to Apple&rsquo;s speech recognition service to be turned into text, then deleted. Typing sends nothing anywhere.</li>
-        <li><strong>AI is opt-in.</strong> The &ldquo;Personalize&rdquo; feature uses Anthropic to generate a single reflective prompt. It only runs after you accept an in-app consent screen, and you can turn it off anytime.</li>
-        <li><strong>Your writing is never used to train AI models.</strong> Anthropic does not train on your inputs or outputs.</li>
+        <li><strong>AI is opt-in.</strong> The &ldquo;Personalize&rdquo; feature uses Anthropic to generate a single reflective prompt, and <strong>Deeper</strong> conversations use OpenAI. Each runs only after you accept its own in-app consent screen, and you can turn either off anytime.</li>
+        <li><strong>Your writing is never used to train AI models.</strong> Neither Anthropic nor OpenAI trains on your inputs or outputs.</li>
         <li><strong>We don&rsquo;t collect your name, email, phone number, IP logs, advertising IDs, or location.</strong> Analytics use an anonymous install ID and never include journal content.</li>
-        <li><strong>You&rsquo;re in control.</strong> Delete the app to wipe local data. Revoke AI consent to stop all AI processing. Email us anytime for GDPR/CCPA requests.</li>
+        <li><strong>You&rsquo;re in control.</strong> <strong>Settings &rarr; Privacy &amp; Data &rarr; Delete all my data</strong> erases your entries, conversations, notes and profile from your devices, your iCloud and our servers in one step. Revoke AI consent to stop all AI processing. Email us anytime for GDPR/CCPA requests.</li>
       </ul>
 
       <div class="callout">
@@ -386,16 +387,18 @@
 
       <h2 id="s2"><span class="num">Section 2</span>What We Collect, Where It Goes, and Why</h2>
 
-      <h3>2.1 On Your Device (the Default)</h3>
-      <p>The following stay on your iPhone and are never uploaded to a server we operate:</p>
+      <h3>2.1 On Your Devices and in Your Private iCloud (the Default)</h3>
+      <p>The following are never uploaded to a server we operate:</p>
       <ul>
-        <li>Journal entries (text and any voice-dictated text)</li>
-        <li>Daily mood values, custom topics, emotion labels, and any name you enter</li>
-        <li>App settings and preferences</li>
+        <li>Journal entries (text and any voice-dictated text), daily mood values and emotion labels</li>
+        <li>Custom topics</li>
+        <li>Deeper conversations and their session notes</li>
+        <li>Your profile (including any name you enter) and app settings &mdash; these stay on the device only</li>
       </ul>
-      <p>Voice dictation is the exception: the recording itself is sent to Apple to be transcribed. See <a href="#s2-4">2.4</a>.</p>
+      <p>If iCloud is enabled for Mulu, entries, custom topics, Deeper conversations and notes are synced through Apple&rsquo;s <strong>CloudKit private database</strong> in <strong>your own iCloud account</strong>, so they appear on your other devices. Only you can access that database; we can&rsquo;t. The text fields are stored with CloudKit&rsquo;s encrypted fields. Apple&rsquo;s handling of iCloud data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple&rsquo;s Privacy Policy</a>.</p>
+      <p>Voice dictation and the opt-in AI features are the exceptions. See <a href="#s2-4">2.4</a>, <a href="#ai">Section 3</a> and <a href="#deeper">Section 4</a>.</p>
       <div class="callout">
-        If you delete the Mulu app, this data is erased with it.
+        <strong>Settings &rarr; Privacy &amp; Data &rarr; Delete all my data</strong> erases all of this from your devices and your iCloud. Deleting the app removes only the copy on that device; the iCloud copy stays until you delete it in the app or in iOS Settings &rarr; [your name] &rarr; iCloud &rarr; Manage Account Storage &rarr; Mulu.
       </div>
 
       <h3>2.2 Data That Leaves Your Device (Only in Specific, Narrow Cases)</h3>
@@ -405,7 +408,11 @@
           <tr><th>Service</th><th>When it&rsquo;s used</th><th>What&rsquo;s shared</th></tr>
         </thead>
         <tbody>
+          <tr><td>Apple iCloud (CloudKit private database)</td><td>If iCloud is on for Mulu</td><td>Your entries, custom topics, Deeper conversations and notes &mdash; in your own iCloud, not ours</td></tr>
           <tr><td>Anthropic, PBC</td><td>Only if you opt into AI &ldquo;Personalize&rdquo;</td><td>Up to 5 recent journal entries + moods</td></tr>
+          <tr><td>OpenAI, L.L.C.</td><td>Only if you use Deeper, after its consent screen</td><td>The Deeper conversation, recent check-ins and past session notes (see <a href="#deeper">Section 4</a>)</td></tr>
+          <tr><td>Supabase, Inc.</td><td>Only if you use Deeper</td><td>Anonymous account ID, content-free usage records, safety-check timestamps, optional feedback, session notes encrypted with a key only your device holds (for up to 24 hours)</td></tr>
+          <tr><td>Apple Push Notification service</td><td>Only if you allow notifications and use Deeper</td><td>A device token, to tell you when session notes are ready</td></tr>
           <tr><td>RevenueCat, Inc.</td><td>If you have a paid subscription</td><td>Anonymized install ID, purchase events, status</td></tr>
           <tr><td>PostHog, Inc.</td><td>Anonymous product analytics &amp; A/B tests</td><td>Event names, install UUID, onboarding answers, mood numbers, experiment variant (no journal text)</td></tr>
           <tr><td>Apple CloudKit</td><td>Only if you post on Feature Requests</td><td>Title, description, votes, anon record name</td></tr>
@@ -420,6 +427,7 @@
       <ul>
         <li>An anonymized install UUID, used by PostHog so we can count distinct installs without knowing who you are.</li>
         <li>An anonymous CloudKit user record name, only if you post on the Feature Requests board, so duplicate votes can be prevented.</li>
+        <li>If you use Deeper: a random, anonymous account ID created by our backend (no name, email or password), and an Apple App Attest key that lets our server confirm requests come from the genuine Mulu app.</li>
       </ul>
 
       <h3 id="s2-4">2.4 Voice Dictation</h3>
@@ -427,7 +435,7 @@
       <ul>
         <li>A single recording is capped at 60 seconds.</li>
         <li>The audio file sits in Mulu&rsquo;s temporary storage only until the transcription comes back, and is deleted immediately afterwards. It is not kept, backed up, or synced.</li>
-        <li>Only the resulting text is placed in your entry, where it stays on your device like anything you type.</li>
+        <li>Only the resulting text is placed in your entry, where it is stored like anything you type. In a Deeper conversation, that text is sent like a typed message (see <a href="#deeper">Section 4</a>); the audio is never sent to OpenAI.</li>
         <li>Dictation is entirely optional and never runs on its own. It starts only when you tap the microphone, and it needs the microphone and speech recognition permissions, which iOS asks you for the first time you use it. Decline either one and the journal still works fully by typing.</li>
       </ul>
       <p>
@@ -436,7 +444,7 @@
 
       <a id="ai"></a>
       <h2 id="s3"><span class="num">Section 3</span>AI &amp; Data (the &ldquo;Personalize&rdquo; Feature)</h2>
-      <p>Mulu&rsquo;s optional <strong>&ldquo;Personalize&rdquo;</strong> feature can generate one short, reflective journaling prompt based on your recent entries. Apart from voice dictation (<a href="#s2-4">2.4</a>), this is the only feature in Mulu that sends any journal content off your device, and it only runs after you turn it on.</p>
+      <p>Mulu&rsquo;s optional <strong>&ldquo;Personalize&rdquo;</strong> feature can generate one short, reflective journaling prompt based on your recent entries. Apart from voice dictation (<a href="#s2-4">2.4</a>), iCloud sync to your own account, and Deeper (<a href="#deeper">Section 4</a>), this is the only feature in Mulu that sends journal content off your device, and it only runs after you turn it on.</p>
 
       <h3>3.1 Who Processes the Request</h3>
       <p>We use <strong>Anthropic, PBC</strong> as our AI sub-processor. Anthropic operates the Claude models we send the request to, and acts under a data processing agreement with us &mdash; they are a processor, not an independent controller of your data. Specifically, Mulu sends Personalize requests to the <strong>Claude <code>claude-haiku-4-5</code></strong> model via Anthropic&rsquo;s Messages API.</p>
@@ -464,15 +472,39 @@
         This section is provided in line with Apple&rsquo;s App Review Guideline 5.1.1(ix), which requires apps using third-party AI to process personal or health-related data to disclose it clearly and obtain consent. It also forms part of the information we give you under GDPR Article 13.
       </div>
 
-      <h2 id="s4"><span class="num">Section 4</span>Apple Health</h2>
+      <a id="deeper"></a>
+      <h2 id="s4"><span class="num">Section 4</span>Deeper Conversations (OpenAI)</h2>
+      <p><strong>Deeper</strong> is an optional, guided reflection conversation that uses techniques from cognitive behavioral therapy. It is a supportive conversation, <strong>not therapy or medical care</strong>. Nothing is sent until you accept the consent screen shown before your first Deeper conversation.</p>
+
+      <h3>4.1 What Is Sent, and to Whom</h3>
+      <ul>
+        <li><strong>OpenAI, L.L.C.</strong> generates the replies, topic suggestions and session notes. To do that it receives the conversation, your recent check-ins (for topic suggestions) and short notes from past sessions. Requests are made with OpenAI&rsquo;s no-storage setting. OpenAI may keep this data for <strong>up to 30 days</strong> for safety and abuse monitoring, then deletes it. It is <strong>never used to train</strong> OpenAI&rsquo;s models.</li>
+        <li><strong>Safety check.</strong> Before any reply is generated, each message you send (together with your previous one), and the text used for topic suggestions and notes, is checked for signs of suicide or self-harm by an OpenAI model under the same settings, with OpenAI&rsquo;s moderation service as a backup. If there are signs of risk, no AI reply is generated and Mulu shows crisis support resources instead.</li>
+      </ul>
+
+      <h3>4.2 What Our Backend Stores (Supabase)</h3>
+      <p>Deeper requests pass through our backend, hosted by <strong>Supabase, Inc.</strong> It stores no message text. It keeps only:</p>
+      <ul>
+        <li>An anonymous account ID (no name, email or password)</li>
+        <li>Content-free usage records: time, feature and token counts, used for fair-use limits and costs</li>
+        <li>If the safety check detects a risk: a record of only that ID and the time</li>
+        <li>Any rating and comment you choose to send about a conversation &mdash; never the conversation itself</li>
+        <li>Session notes for up to 24 hours while they&rsquo;re prepared, encrypted with a key that only your device holds, then deleted</li>
+      </ul>
+      <p>Your Deeper conversations and notes themselves live on your devices and in your private iCloud, like your journal.</p>
+
+      <h3>4.3 Consent, Revocation and Deletion</h3>
+      <p>You can withdraw Deeper consent anytime in <strong>Settings &rarr; AI &amp; Data</strong>, which turns Deeper off and stops anything more being sent to OpenAI. <strong>Settings &rarr; Privacy &amp; Data &rarr; Delete all my data</strong> deletes your anonymous account and everything our backend holds for it, together with your data on your devices and in iCloud. Text already sent to OpenAI is deleted by OpenAI within 30 days.</p>
+
+      <h2 id="s5"><span class="num">Section 5</span>Apple Health</h2>
       <p>Apple Health integration is <strong>opt-in</strong> and <strong>write-only</strong>. If you enable it, Mulu writes your daily mood (after you&rsquo;ve journaled) into Apple Health&rsquo;s <strong>State of Mind</strong> data type, so it lives alongside your other wellbeing data on your device. The value we write is a <em>valence</em> derived from your 1&ndash;10 mood slider, with the <code>kind</code> set to <code>dailyMood</code>. Nothing else is written.</p>
       <p>Mulu <strong>never reads</strong> your Apple Health data. iOS still surfaces a read permission in the system sheet because the platform requires it to grant write access &mdash; we ask for the minimum we need to write, and we use none of what we could read. This is also disclosed in Mulu&rsquo;s <code>NSHealthShareUsageDescription</code> string (&ldquo;Mulu does not read your Health data&hellip;&rdquo;) and <code>NSHealthUpdateUsageDescription</code> string.</p>
       <p>You can revoke Health permissions at any time, either from inside Mulu under <strong>Settings &rarr; Apple Health</strong>, or from iOS <strong>Settings &rarr; Privacy &amp; Security &rarr; Health &rarr; Mulu</strong>. Past samples written by Mulu remain in your Apple Health database under your control.</p>
 
-      <h2 id="s5"><span class="num">Section 5</span>Screen Time (Family Controls)</h2>
+      <h2 id="s6"><span class="num">Section 6</span>Screen Time (Family Controls)</h2>
       <p>Mulu&rsquo;s gentle &ldquo;pause apps&rdquo; feature uses Apple&rsquo;s <strong>Family Controls / Screen Time API</strong>. If you enable it, you choose which apps to pause and at what time. Apple gives Mulu only opaque tokens for the apps you select &mdash; we cannot see the names of the apps you&rsquo;ve chosen, and no Screen Time data leaves your device.</p>
 
-      <h2 id="s6"><span class="num">Section 6</span>Subscriptions (RevenueCat)</h2>
+      <h2 id="s7"><span class="num">Section 7</span>Subscriptions (RevenueCat)</h2>
       <p>If you subscribe to a paid plan, billing and entitlements are handled by Apple&rsquo;s App Store and managed in our app via <strong>RevenueCat, Inc.</strong> RevenueCat receives:</p>
       <ul>
         <li>An anonymized install ID</li>
@@ -481,7 +513,7 @@
       </ul>
       <p>RevenueCat does not receive any journal content, mood values, or AI inputs/outputs. Your payment details are handled by Apple, not by us or RevenueCat. See RevenueCat&rsquo;s privacy policy for their practices.</p>
 
-      <h2 id="s7"><span class="num">Section 7</span>Analytics (PostHog)</h2>
+      <h2 id="s8"><span class="num">Section 8</span>Analytics (PostHog)</h2>
       <p>We use <strong>PostHog, Inc.</strong> to understand which features people use, so we can improve Mulu. PostHog receives:</p>
       <ul>
         <li>Event names tied to in-app behaviour (e.g. <code>onboarding_step_viewed</code>, <code>journal_completed</code>, <code>paywall_viewed</code>, <code>paywall_purchased</code>, <code>paywall_restored</code>)</li>
@@ -490,17 +522,17 @@
         <li>Lightweight install metadata: the date you first launched the app, the app version you first installed on, and your current in-app language preference &mdash; used to size cohorts (e.g. &ldquo;users who installed in March&rdquo;) and to know which translation is being used most</li>
         <li>The numeric mood values (1&ndash;10) you record at the start and end of a journal entry, plus the entry&rsquo;s word count and calculated mood shift &mdash; sent with the <code>journal_completed</code> event so we can measure whether journaling changes mood at a population level. <strong>The text of your journal entry is not sent.</strong></li>
         <li>Aggregate timing from onboarding: how long a screen was on display, total time in the onboarding flow, and (when you leave mid-flow) whether the cause was dismissing the app or backgrounding it &mdash; used to find slow or confusing screens</li>
-        <li>The variant of the onboarding A/B test you were assigned to (see section&nbsp;7.1)</li>
+        <li>The variant of the onboarding A/B test you were assigned to (see section&nbsp;8.1)</li>
       </ul>
       <div class="callout">
-        <strong>What PostHog never receives:</strong> the text of your journal entries, your custom topics, the title or text of your AI &ldquo;Personalize&rdquo; prompts, or any AI inputs or outputs. Analytics events are about behaviour in the app, not about what you write. Apple&rsquo;s automatic screen-view capture is also explicitly disabled (<code>captureScreenViews&nbsp;=&nbsp;false</code>), and the install UUID is never linked to your name, email, IP address, IDFA, or any device-level identifier.
+        <strong>What PostHog never receives:</strong> the text of your journal entries, your custom topics, the title or text of your AI &ldquo;Personalize&rdquo; prompts, your Deeper conversations or notes, or any AI inputs or outputs. Analytics events are about behaviour in the app, not about what you write. Apple&rsquo;s automatic screen-view capture is also explicitly disabled (<code>captureScreenViews&nbsp;=&nbsp;false</code>), and the install UUID is never linked to your name, email, IP address, IDFA, or any device-level identifier.
       </div>
 
-      <h3>7.1 A/B Tests &amp; Feature Flags</h3>
+      <h3>8.1 A/B Tests &amp; Feature Flags</h3>
       <p>We use PostHog&rsquo;s feature-flag system to run product experiments &mdash; for example, to compare different orderings of the onboarding flow and find the clearest one. On first launch, PostHog assigns you to a stable variant of an active experiment (e.g. <code>onboarding_steps_v1</code> &rarr; <code>control</code> or <code>variant_a</code>), and that variant name is attached as a property on the analytics events listed above so we can compare outcomes between groups.</p>
       <p>The assignment is purely anonymous &mdash; it&rsquo;s tied to your install UUID, not to you as a person. Required parts of the experience (the subscription paywall, the Screen Time authorization step, and the app picker) are guaranteed to appear in every variant; experiments cannot be used to disable safety information or the consent screens described elsewhere in this policy.</p>
 
-      <h2 id="s8"><span class="num">Section 8</span>Feature Requests (CloudKit)</h2>
+      <h2 id="s9"><span class="num">Section 9</span>Feature Requests (CloudKit)</h2>
       <p>Mulu has a community Feature Requests board, where you can suggest and vote on ideas. This board uses Apple&rsquo;s <strong>CloudKit public database</strong> in your iCloud environment. If you choose to post or vote, CloudKit stores:</p>
       <ul>
         <li>The title and description you wrote</li>
@@ -510,20 +542,21 @@
       <p>Nothing from your journal touches the Feature Requests board. You can delete posts you&rsquo;ve made at any time.</p>
       <p>On first launch, Mulu also seeds eight &ldquo;Mulu Team&rdquo; roadmap items into this public database (for example, &ldquo;Daily affirmations&rdquo; or &ldquo;Breathing exercises&rdquo;), so the board isn&rsquo;t empty. These Mulu Team posts are part of our public roadmap and cannot be deleted by users.</p>
 
-      <h2 id="s9"><span class="num">Section 9</span>Children&rsquo;s Privacy</h2>
+      <h2 id="s10"><span class="num">Section 10</span>Children&rsquo;s Privacy</h2>
       <p>Mulu is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with information, please contact us and we will delete it. In jurisdictions where the relevant age is higher (for example, parts of the EU under GDPR), the equivalent local age threshold applies.</p>
 
-      <h2 id="s10"><span class="num">Section 10</span>Your Rights</h2>
+      <h2 id="s11"><span class="num">Section 11</span>Your Rights</h2>
 
-      <h3>10.1 For Everyone</h3>
+      <h3>11.1 For Everyone</h3>
       <ul>
-        <li><strong>Erase local data:</strong> delete the Mulu app from your device. All journal entries, moods, and settings stored on-device are erased.</li>
+        <li><strong>Delete everything:</strong> <strong>Settings &rarr; Privacy &amp; Data &rarr; Delete all my data</strong> erases your entries, conversations, notes and profile from your devices, your iCloud and our backend.</li>
+        <li><strong>Stop Deeper:</strong> withdraw consent in <strong>Settings &rarr; AI &amp; Data</strong>.</li>
         <li><strong>Stop AI processing:</strong> revoke consent in <strong>Settings &rarr; AI &amp; Data</strong>. Use <strong>&ldquo;Delete AI cache&rdquo;</strong> to clear cached AI responses on-device.</li>
         <li><strong>Stop Health writes:</strong> turn off Mulu&rsquo;s permission in iOS <strong>Settings &rarr; Privacy &amp; Security &rarr; Health</strong>.</li>
         <li><strong>Delete a Feature Request post:</strong> tap delete on your own post.</li>
       </ul>
 
-      <h3>10.2 EEA, UK, and Switzerland (GDPR)</h3>
+      <h3>11.2 EEA, UK, and Switzerland (GDPR)</h3>
       <p>Under the General Data Protection Regulation, you have the rights to:</p>
       <ul>
         <li><strong>Be informed</strong> about the processing of your data (Article 13) &mdash; this policy is our notice.</li>
@@ -533,10 +566,10 @@
         <li>Rectification, restriction, and the right to object to processing.</li>
         <li>Lodge a complaint with your local supervisory authority.</li>
       </ul>
-      <p>Because most of your data lives only on your device, the fastest way to exercise access, portability, and erasure is on the device itself. For anything we hold off-device (analytics events keyed to your install UUID, AI request retention with Anthropic, RevenueCat subscription records, Feature Requests posts), email us and we will help.</p>
-      <p><strong>Legal bases.</strong> We rely on your <strong>consent</strong> for the AI feature, voice dictation, Apple Health writes, Screen Time access, and Feature Requests posting. We rely on <strong>legitimate interests</strong> for low-level anonymized analytics used to improve the app, and on <strong>performance of a contract</strong> for subscription management.</p>
+      <p>Because most of your data lives only on your device, the fastest way to exercise access, portability, and erasure is on the device itself. The in-app <strong>Delete all my data</strong> covers your devices, your iCloud and our Deeper backend. For anything else held off-device (analytics events keyed to your install UUID, AI request retention with Anthropic or OpenAI, RevenueCat subscription records, Feature Requests posts), email us and we will help.</p>
+      <p><strong>Legal bases.</strong> We rely on your <strong>consent</strong> for the AI features (Personalize and Deeper), voice dictation, Apple Health writes, Screen Time access, and Feature Requests posting. We rely on <strong>legitimate interests</strong> for low-level anonymized analytics used to improve the app, and on <strong>performance of a contract</strong> for subscription management.</p>
 
-      <h3>10.3 California (CCPA / CPRA)</h3>
+      <h3>11.3 California (CCPA / CPRA)</h3>
       <p>Under the California Consumer Privacy Act and CPRA, you have the rights to:</p>
       <ul>
         <li><strong>Know</strong> what personal information we collect and how it&rsquo;s used (&sect;1798.100)</li>
@@ -549,13 +582,13 @@
         <strong>We do not sell your personal information, and we do not share it for cross-context behavioural advertising.</strong>
       </div>
 
-      <h3>10.4 How to Exercise These Rights</h3>
+      <h3>11.4 How to Exercise These Rights</h3>
       <p>Email <a href="mailto:support@alexanderosso.com" data-fast-goal="email_support" data-fast-goal-context="privacy">support@alexanderosso.com</a> with your request. We may need to verify it relates to your install (for example, by asking you to send a request from within the app). We aim to respond within 30 days.</p>
 
-      <h2 id="s11"><span class="num">Section 11</span>Changes to This Policy</h2>
+      <h2 id="s12"><span class="num">Section 12</span>Changes to This Policy</h2>
       <p>If we change this policy, we&rsquo;ll update the <strong>Last updated</strong> date at the top. For changes that materially affect how your data is handled &mdash; for example, a new sub-processor, a new data type sent off-device, or a change to AI retention &mdash; we&rsquo;ll also notify you in the app before the change takes effect, so you have a chance to review and, if you wish, revoke your consent.</p>
 
-      <h2 id="s12"><span class="num">Section 12</span>Contact</h2>
+      <h2 id="s13"><span class="num">Section 13</span>Contact</h2>
       <p>Questions, requests, or concerns about your privacy? We&rsquo;re here for it.</p>
       <ul>
         <li><strong>Email:</strong> <a href="mailto:support@alexanderosso.com" data-fast-goal="email_support" data-fast-goal-context="privacy">support@alexanderosso.com</a></li>

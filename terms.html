@@ -362,7 +362,7 @@
   <header class="hero">
     <span class="eyebrow"><span class="dot"></span> Legal</span>
     <h1 class="title">Terms of Service</h1>
-    <div class="updated">Last updated · May 5, 2026</div>
+    <div class="updated">Last updated · September 30, 2026</div>
   </header>
 
   <div class="article-wrap">
@@ -402,8 +402,9 @@
         <li><strong>Mood tracking</strong> before and after each journal entry to measure emotional shifts</li>
         <li><strong>App blocking</strong> that locks selected distracting apps until you complete your daily journal entry</li>
         <li><strong>Streak tracking</strong> to help you build and maintain a consistent journaling habit</li>
-        <li><strong>Voice dictation</strong> for hands-free journal entry using on-device speech recognition</li>
+        <li><strong>Voice dictation</strong> for hands-free journal entry using Apple&rsquo;s speech recognition</li>
         <li><strong>AI-powered question generation</strong> using the Claude API to create personalized prompts</li>
+        <li><strong>Deeper</strong>, an optional AI-guided reflection conversation using techniques from cognitive behavioral therapy, with session notes</li>
         <li><strong>Feature requests</strong> where users can submit and vote on ideas for new features</li>
         <li><strong>Data export</strong> (premium) in JSON and CSV formats</li>
         <li><strong>Premium subscription</strong> with additional analytics, export, and customization features</li>
@@ -415,7 +416,8 @@
 
       <h2 id="s4"><span class="num">Section 4</span>User Account &amp; Data</h2>
       <ul>
-        <li><strong>No account required:</strong> Mulu does not require you to create an account. Your data is stored locally on your device.</li>
+        <li><strong>No account required:</strong> Mulu does not require you to create an account. Your data is stored on your device and, if iCloud is on, in your own private iCloud. Using Deeper creates an anonymous backend account with no name, email or password.</li>
+        <li><strong>Deleting your data:</strong> Settings &rarr; Privacy &amp; Data &rarr; Delete all my data removes your content from your devices, your iCloud and our backend.</li>
         <li><strong>Apple ID integration:</strong> Subscription management and Feature Requests use your Apple ID through Apple's built-in systems (App Store and CloudKit). We do not have access to your Apple ID credentials.</li>
         <li><strong>Data ownership:</strong> You retain full ownership of all content you create in the App, including journal entries, mood data, personal reflections, and signatures.</li>
         <li><strong>Data handling:</strong> Your data is handled in accordance with our <a href="/privacy">Privacy Policy</a>.</li>
@@ -479,14 +481,17 @@
       <h3>8.1 The Personalize Feature</h3>
       <p>Mulu&rsquo;s optional <strong>&ldquo;Personalize&rdquo;</strong> feature generates short reflective journaling prompts based on the journal entries and mood values you choose to share with it. The feature is opt-in: it only runs after you accept an in-app consent screen, and you can revoke that consent anytime in <strong>Settings &rarr; AI &amp; Data</strong>.</p>
 
-      <h3>8.2 Not Medical or Clinical Advice</h3>
-      <p>AI-generated prompts are <strong>not medical, psychological, psychiatric, or other clinical advice, diagnosis, or treatment</strong>, and Mulu is not a substitute for a qualified healthcare professional. AI outputs may be inaccurate, incomplete, or unsuitable for your situation, and we make no representations or warranties &mdash; express or implied &mdash; about their accuracy, reliability, or fitness for any particular purpose. You remain solely responsible for how you interpret and act on anything an AI prompt says.</p>
+      <h3>8.2 Deeper Conversations</h3>
+      <p><strong>Deeper</strong> is an optional reflection conversation with an AI companion that uses techniques from cognitive behavioral therapy. It is a supportive conversation, <strong>not therapy, counselling or medical care</strong>, and the companion is not a therapist or psychologist. Deeper only runs after you accept its own in-app consent screen, and you can withdraw consent anytime in <strong>Settings &rarr; AI &amp; Data</strong>. Deeper cannot help in an emergency: when a message suggests a risk of self-harm, Mulu pauses the conversation and shows crisis resources instead of an AI reply. We may apply fair-use limits to the number of conversations and messages per day.</p>
 
-      <h3>8.3 Sub-Processor</h3>
-      <p>To deliver the AI feature, Mulu uses <strong>Anthropic, PBC</strong> as a sub-processor under a data processing agreement. The data sent, the retention limits (no longer than 30 days at Anthropic, for safety monitoring only), and the fact that your data is not used to train Anthropic&rsquo;s models are described in our <a href="/privacy#ai">Privacy Policy</a>. By enabling the AI feature you acknowledge this sub-processor relationship and the limitations described above.</p>
+      <h3>8.3 Not Medical or Clinical Advice</h3>
+      <p>AI-generated prompts, Deeper replies and session notes are <strong>not medical, psychological, psychiatric, or other clinical advice, diagnosis, or treatment</strong>, and Mulu is not a substitute for a qualified healthcare professional. AI outputs may be inaccurate, incomplete, or unsuitable for your situation, and we make no representations or warranties &mdash; express or implied &mdash; about their accuracy, reliability, or fitness for any particular purpose. You remain solely responsible for how you interpret and act on anything an AI prompt says.</p>
+
+      <h3>8.4 Sub-Processors</h3>
+      <p>To deliver the AI features, Mulu uses <strong>Anthropic, PBC</strong> (Personalize) and <strong>OpenAI, L.L.C.</strong> (Deeper) as sub-processors, and <strong>Supabase, Inc.</strong> to host the Deeper backend. The data sent, the retention limits (no longer than 30 days at Anthropic and OpenAI, for safety monitoring only), and the fact that your data is not used to train their models are described in our <a href="/privacy#ai">Privacy Policy</a>. By enabling an AI feature you acknowledge these sub-processor relationships and the limitations described above.</p>
 
       <div class="callout">
-        <strong>If you are experiencing a mental health crisis,</strong> please contact emergency services or a crisis helpline. AI prompts are not a substitute for emergency or professional help.
+        <strong>If you are experiencing a mental health crisis,</strong> please contact emergency services or a crisis helpline. AI prompts and Deeper conversations are not a substitute for emergency or professional help.
         <ul style="margin-top:10px;">
           <li><strong>International:</strong> Contact your local emergency number</li>
           <li><strong>USA:</strong> 911 (emergency) or 988 (Suicide &amp; Crisis Lifeline)</li>
@@ -520,7 +525,7 @@
         <li>Any indirect, incidental, special, consequential, or punitive damages</li>
         <li>Any loss of data, journal entries, or streak progress</li>
         <li>Any loss arising from the app blocking feature not functioning as expected</li>
-        <li>Any issues arising from third-party services (RevenueCat, PostHog, Anthropic, Apple CloudKit)</li>
+        <li>Any issues arising from third-party services (RevenueCat, PostHog, Anthropic, OpenAI, Supabase, Apple CloudKit)</li>
       </ul>
       <p>Our maximum aggregate liability shall not exceed the greater of (a) €100 or (b) the total amounts you have paid to us in the 12 months preceding the claim.</p>
       <div class="callout">
@@ -528,7 +533,7 @@
       </div>
 
       <h2 id="s12"><span class="num">Section 12</span>Third-Party Services</h2>
-      <p>The App integrates with third-party services including RevenueCat, PostHog, Apple CloudKit, and the Anthropic Claude API. Your use of these services is subject to their respective terms and privacy policies. We are not responsible for the practices or availability of any third-party service.</p>
+      <p>The App integrates with third-party services including RevenueCat, PostHog, Apple iCloud and CloudKit, the Anthropic Claude API, the OpenAI API, and Supabase. Your use of these services is subject to their respective terms and privacy policies. We are not responsible for the practices or availability of any third-party service.</p>
 
       <h2 id="s13"><span class="num">Section 13</span>Modifications to the App &amp; Terms</h2>
       <h3>13.1 App Changes</h3>
